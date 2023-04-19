@@ -47,7 +47,6 @@ create table sitter_type_link(
     user_id int not null,
     sitter_type_id int not null,
     foreign key(user_id) references user(id),
-    foreign key(user_id) references dog(id),
     foreign key(sitter_type_id) references sitter_type(sitter_type_id)
     );
     
@@ -56,8 +55,6 @@ create table sitter_dog_link(
     dog_type_id int not null,
     sitter_type_id int not null,
     foreign key(dog_type_id) references dog_type(id),
-    foreign key(dog_type_id) references sitter_type(sitter_type_id),
-    foreign key(sitter_type_id) references dog_type(id),
     foreign key(sitter_type_id) references sitter_type(sitter_type_id)
     );
     
