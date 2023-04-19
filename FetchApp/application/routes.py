@@ -1,6 +1,9 @@
 from flask import render_template, jsonify, request, redirect, url_for
 import hashlib
-from application.models.people import Person
+from application.models.user import User
+from application.models.dog import Dog
+from application.models.dog_type import DogType
+from application.models.sitter_type import SitterType
 from application import app, service
 
 

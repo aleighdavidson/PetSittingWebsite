@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="476d32bf-1bed-419c-87a5-d591772bd3d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/application/models/dog_type.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user.py" afterDir="false" />
+=======
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/application/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/service.py" afterDir="false" />
+>>>>>>> f0039e2afcf6f56c509a5a30daa9207fad53a6a5
+>>>>>>> d7dff6f1b9e684d26c39f65bfdc9b59d6c1704cd
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +42,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/Emily/Documents/SkyAcademy/FinalProject/GitHubRepo/PetSittingWebsite/FetchApp/application/models"
   }
 }]]></component>
@@ -45,6 +56,18 @@
       <recent name="C:\Users\Emily\Documents\SkyAcademy\FinalProject\GitHubRepo\PetSittingWebsite\FetchApp\application\models" />
     </key>
   </component>
+=======
+    "last_opened_file_path": "C:/Users/Ida/Desktop/coding/MySQL/PetApp/PetSittingWebsite/FetchApp"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alex.davidson/Documents/GiT/SharedCode/PetSittingWebsite/FetchApp&quot;
+>>>>>>> f0039e2afcf6f56c509a5a30daa9207fad53a6a5
+  }
+}</component>
+>>>>>>> d7dff6f1b9e684d26c39f65bfdc9b59d6c1704cd
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
