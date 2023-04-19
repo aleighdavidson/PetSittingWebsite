@@ -3,7 +3,8 @@ import hashlib
 from application.models.people import Person
 from application import app, service
 
-#ROUTE Landing Page
+
+# ROUTE Landing Page
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
@@ -11,6 +12,7 @@ def catch_all(path):
         return 'ERROR 404 %s does not exist' % path
     # return 'Welcome Page' #login template
     return render_template('index.html')
+
 
 # ROUTE try to login (encrypted for security)
 @app.route('/login', methods=['GET', 'POST'])
