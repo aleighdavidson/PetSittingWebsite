@@ -26,7 +26,7 @@ create table dog(
     dog_name varchar(50) not null,
     type_id int not null,
     description text,
-    foreign key(user_id) references user(id),
+    foreign key(user_id) references user(id) on delete cascade,
     foreign key(type_id) references dog_type(id)
     );
 
@@ -34,11 +34,11 @@ create table dog_photos(
 	id int auto_increment not null primary key,
     dog_id int not null,
     photo varchar(260) not null,
-    foreign key(dog_id) references dog(id)
+    foreign key(dog_id) references dog(id) on delete cascade
     );
     
 create table sitter_type(
-	sitter_type_id int auto_increment not null primary key,
+	id int auto_increment not null primary key,
     sitter_type varchar(50) not null
     );
     
@@ -46,8 +46,8 @@ create table sitter_type_link(
 	link_id int auto_increment not null primary key,
     user_id int not null,
     sitter_type_id int not null,
-    foreign key(user_id) references user(id),
-    foreign key(sitter_type_id) references sitter_type(sitter_type_id)
+    foreign key(user_id) references user(id) on delete cascade,
+    foreign key(sitter_type_id) references sitter_type(id) 
     );
     
 create table sitter_dog_link(
@@ -55,7 +55,7 @@ create table sitter_dog_link(
     dog_type_id int not null,
     sitter_type_id int not null,
     foreign key(dog_type_id) references dog_type(id),
-    foreign key(sitter_type_id) references sitter_type(sitter_type_id)
+    foreign key(sitter_type_id) references sitter_type(id)
     );
     
     
@@ -140,4 +140,6 @@ INSERT INTO sitter_dog_link (dog_type_id, sitter_type_id) VALUES
     (3, 3),
     (4, 4),
     (5, 5);
-    
+
+create user 'fetch.member'@'localhost' identified by 'member.pass';
+grant select, update, insert, delete on fetchdb.* to 'fetch.member'@'localhost';
