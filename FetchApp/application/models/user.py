@@ -3,6 +3,8 @@ from application import db
 from dataclasses import dataclass
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
+from typing import List
+from sqlalchemy.orm import relationship
 
 
 @dataclass
@@ -18,3 +20,5 @@ class User(db.Model):
     password: Mapped[str] = mapped_column(db.String)
     user_type: Mapped[str] = mapped_column(db.String)
     bio: Mapped[str] = mapped_column(db.String)
+
+    dog: Mapped[List["Dog"]] = relationship("Dog", back_populates='user')
