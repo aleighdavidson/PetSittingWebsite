@@ -6,4 +6,4 @@ from application import db
 
 # check login details for a user
 def check_login_details(email, password):
-    return db.session.query(User).filter_by(email=email, pass_word=password, ).first()
+    return db.session.query(User).filter_by(email=email, password=password, ).first()
