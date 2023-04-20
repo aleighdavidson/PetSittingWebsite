@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+</head>
+<body>
+<div>
+
+{% for user in users %}
+        {% if user.user_type == "Sitter" %}
+            <p>{{user.id}} {{user.first_name}} {{user.last_name}} {{user.city}}</p>
+        {% else %}
+            <p>{{user.id}} {{user.first_name}} {{user.last_name}} {{user.city}} Owns: {{my_dict[user.id]}}</p>
+        {% endif %}
+{% endfor %}
+    <br>
+    {{ message }}
+</div>
+</body>
+</html>
+
