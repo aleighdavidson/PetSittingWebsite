@@ -36,15 +36,11 @@ def try_login():
             return redirect(url_for('success', id=user.id))
         # if unsuccessful, will return an error message along with the login page again
         error = "Incorrect details. Please try a different login"
-    return render_template('login.html', error=error)
+    return \
+        render_template('header.html', pageTitle="Login Page") + \
+        render_template('login.html', error=error) + \
+        render_template('footer.html')
 
-
-
-# ROUTE for when logged in (encrypted for security just returns encryption of password  > This will be our user
-# matches page)
-@app.route('/success/<name>', methods=['GET', 'POST'])
-def success(name):
-    return 'welcome %s' % name
 
 # ROUTE This will be our matches page if login successful > it now returns the user ID associated with login details)
 @app.route('/success/<id>', methods=['GET', 'POST'])
