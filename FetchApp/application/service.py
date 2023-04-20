@@ -10,6 +10,9 @@ def check_login_details(email, password):
     return db.session.query(User).filter_by(email=email, password=password, ).first()
 
 
+def get_account_details(id):
+    return db.session.query(User).filter_by(id=id).first()
+
 
 ######## TESTING ############
 # def get_all_users():

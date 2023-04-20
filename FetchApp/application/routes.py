@@ -48,6 +48,12 @@ def success(id):
     return 'welcome %s' % id
 
 
+@app.route('/account/<id>', methods=['GET', 'POST'])
+def account(id):
+    error = ""
+    user = service.get_account_details(id)
+    return render_template('account.html', user=user, message=error)
+
 ########## TESTING ################
 
 # @app.route('/users', methods=['GET'])
