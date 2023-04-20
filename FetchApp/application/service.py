@@ -4,6 +4,21 @@ from application.models.dog_type import DogType
 from application.models.sitter_type import SitterType
 from application import db
 
+
 # check login details for a user
 def check_login_details(email, password):
     return db.session.query(User).filter_by(email=email, pass_word=password, ).first()
+
+
+def get_all_users():
+    return db.session.query(User).all()
+
+
+def get_all_dogs():
+    return db.session.query(Dog).all()
+
+
+def get_all_sitter_types():
+    return db.session.query(SitterType).all()
+
+
