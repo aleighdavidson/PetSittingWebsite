@@ -30,4 +30,4 @@ class User(db.Model):
     bio: Mapped[str] = mapped_column(db.String)
 
     dog: Mapped[List["Dog"]] = relationship("Dog", back_populates='user', cascade="all, delete-orphan")
-    #sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='user')
+    # sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='user')
