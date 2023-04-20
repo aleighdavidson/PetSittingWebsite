@@ -1,0 +1,90 @@
+/* This is for all templates */
+:root {
+	--cream: #F7EEE2;
+	--lightGreen: #D4E3D7;
+	--green: #74A57F;
+	--font: 'rancho';
+}
+
+body {
+	background-color: var(--cream);
+	overflow-x: hidden;
+	margin:0;
+}
+/* styling this directly compared to body due to bootstrap styling */
+.bodyStyling {
+	color:white;
+	background-color:var(--cream);
+	margin:0;
+	padding:0;
+	font-family:var(--font)
+}
+
+h3 {
+	font-family: var(--font);
+	color:rgb(0, 0, 0);
+	font-size:50px;
+}
+
+.buttonCustom {
+	background-color:var(--green);
+	font-family:var(--font);
+	border-radius:1rem;
+	font-size: 1rem;
+	font-weight: 900;
+	padding: 0.6rem 2.5rem;
+}
+
+.buttonCustom:hover {
+	cursor: pointer;
+}
+
+
+
+/* Login Template */
+.loginContainer{
+	max-width: 600px;
+	margin: auto;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+#loginHeading {
+	background-color: white;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align:center;
+}
+
+#loginHeading > div > p {
+	color:rgb(0, 0, 0);
+	font-size:20px;
+	padding:0;
+	margin:0;
+}
+
+#loginInput {
+	background-color:var(--lightGreen);
+	padding:20px;
+	text-align:center;
+}
+
+input{
+	padding: 12px 30px;
+	margin: 8px 0;
+	box-sizing: border-box;
+  }
+
+.login {
+	font-size: large;
+	color:black;
+}
+
+.error {
+    color:red;
+}
+/* Sign Up Template */
+
+/* HomePage Template */
+
+/* Matches Template */

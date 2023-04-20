@@ -7,7 +7,7 @@ from application import db
 
 # check login details for a user
 def check_login_details(email, password):
-    return db.session.query(User).filter_by(email=email, pass_word=password, ).first()
+    return db.session.query(User).filter_by(email=email, password=password, ).first()
 
 
 def get_all_users():
@@ -20,5 +20,3 @@ def get_all_dogs():
 
 def get_all_sitter_types():
     return db.session.query(SitterType).all()
-
-

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Login Page </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<body class="bodyStyling">
+	<div class="loginContainer">
+		<div id="loginHeading">
+			<div>
+				<img src="static/images/logo 1.png" alt="Logo"/>
+				<p> Are you new here? </p>
+				<input class ="buttonCustom" type="reset" value="Create an Account">
+			</div>
+		</div>
+		<div id="loginInput">
+			<h3> Login Account </h3>
+			<p class="error"> {{error}} </p>
+			<form method="post">
+				<label class="login"> Email Address: </label><br>
+				<input type="email" id="emailInput" name="emailInput"><br>
+				<label class="login"> Password: </label><br>
+				<input type="password" id="passwordInput" name="passwordInput"><br>
+				<input class ="buttonCustom" type="submit" value="Submit" >
+			</form>
+		</div>
+	</div>
+<script>
+
+</script>
+</body>
+</html>
