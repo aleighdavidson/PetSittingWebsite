@@ -24,6 +24,7 @@ create table dog(
 	id int auto_increment not null primary key,
     user_id int not null,
     dog_name varchar(50) not null,
+    dog_age varchar(20) not null,
     type_id int not null,
     description text,
     foreign key(user_id) references user(id) on delete cascade,
@@ -96,29 +97,29 @@ INSERT INTO dog_type (dog_type, description) VALUES
     ('Working Dog', 'These breeds were originally bred for various types of work, such as guarding livestock or pulling sleds. Examples of working dog breeds include the Boxer, Great Dane, and Siberian Husky.'),
     ('Herding Dog', 'These breeds were bred to help farmers herd livestock, and are typically intelligent and energetic. Examples of herding dog breeds include the Border Collie, Australian Cattle Dog, and Welsh Corgi.');
 
-INSERT INTO dog (user_id, dog_name, type_id, description) VALUES
-    (6, 'Buddy', 3, 'Buddy is a playful and energetic Labrador Retriever who loves to fetch.'),
-    (7, 'Daisy', 5, 'Rocky is a loyal and protective Border Collie who excels in obedience training.'),
-    (8, 'Papa', 1, 'Papa is a gentle and sweet little Toy Poodle who likes short walks and cuddles.'),
-    (9, 'Scotty', 2, 'Scotty is a Scottish Terrier, he is playful and needs someone who will be able to handle his energy.'),
-    (10, 'Harriet', 4, 'Harriet is a very vocal Siberian Husky who loves a run in the outdoors.'),
-    (11, 'Mabel', 1, 'Mabel is a precious little Chihuahua who loves everyone and everything. She enjoys gentle walks and pets.'),
-    (12, 'Archie', 2, " Archie is an adventurous and curious Jack Russell Terrier who loves to explore the great outdoors. He's great with other dogs and loves to go on long hikes in the mountains."),
-    (13, 'Lucky', 3, 'Lucky is an English Springer Spaniel who adores playtime. Her favourite activity is playing fetch in the park.'),
-    (14, 'Cheese', 4, 'Cheese is a sweet old Great Dane who likes a stroll in the park. He is also crazy for sunbathing!'),
-    (15, 'Bandit', 5, 'Bandit is an Australian Cattle Dog. He is super smart so would love someone who can give him extra enrichment in the form of training.');
+INSERT INTO dog (user_id, dog_name, dog_age, type_id, description) VALUES
+    (6, 'Buddy','3', 3, 'Buddy is a playful and energetic Labrador Retriever who loves to fetch.'),
+    (7, 'Daisy', '4', 5, 'Rocky is a loyal and protective Border Collie who excels in obedience training.'),
+    (8, 'Papa', '10', 1, 'Papa is a gentle and sweet little Toy Poodle who likes short walks and cuddles.'),
+    (9, 'Scotty', '7', 2, 'Scotty is a Scottish Terrier, he is playful and needs someone who will be able to handle his energy.'),
+    (10, 'Harriet', '5', 4, 'Harriet is a very vocal Siberian Husky who loves a run in the outdoors.'),
+    (11, 'Mabel', '4', 1, 'Mabel is a precious little Chihuahua who loves everyone and everything. She enjoys gentle walks and pets.'),
+    (12, 'Archie', '2', 2, " Archie is an adventurous and curious Jack Russell Terrier who loves to explore the great outdoors. He's great with other dogs and loves to go on long hikes in the mountains."),
+    (13, 'Lucky', '8', 3, 'Lucky is an English Springer Spaniel who adores playtime. Her favourite activity is playing fetch in the park.'),
+    (14, 'Cheese', '9', 4, 'Cheese is a sweet old Great Dane who likes a stroll in the park. He is also crazy for sunbathing!'),
+    (15, 'Bandit', '6', 5, 'Bandit is an Australian Cattle Dog. He is super smart so would love someone who can give him extra enrichment in the form of training.');
 
 INSERT INTO dog_photos (dog_id, photo) VALUES
-    (1, '/buddy.jpg'),
-    (2, '/daisy.jpg'),
-    (3, '/papa.jpg'),
-    (4, '/scotty.jpg'),
-    (5, '/harriet.jpg'),
-    (6, '/mabel.jpg'),
-    (7, '/archie.jpg'),
-    (8, '/lucky.jpg'),
-    (9, '/cheese.jpg'),
-    (10, '/bandit.jpg');
+    (1, 'static/images/buddy.png'),
+    (2, 'static/images/daisy.png'),
+    (3, 'static/images/papa.png'),
+    (4, 'static/images/scotty.png'),
+    (5, 'static/images/harriet.png'),
+    (6, 'static/images/mabel.png'),
+    (7, 'static/images/archie.png'),
+    (8, 'static/images/lucky.png'),
+    (9, 'static/images/cheese.png'),
+    (10, 'static/images/bandit.png');
 
 INSERT INTO sitter_type (sitter_type) VALUES
     ('Toy Dog'),
