@@ -16,7 +16,7 @@ create table user(
 
 create table dog_type(
 	id int auto_increment not null primary key,
-    dog_type varchar(50) not null,
+    type_name varchar(50) not null,
     description text not null
     );
 
@@ -90,7 +90,7 @@ INSERT INTO user (first_name, last_name, city, phone, email, password, user_type
     ('Alex', 'Roberts', 'Liverpool', '07151345678', 'alex.roberts@yahoo.com', 'c63c2d34ebe84032ad47b87af194fedd17dacf8222b2ea7f4ebfee3dd6db2dfb', 'Owner', "I'm looking for a dog walker who can take my furry friend out for some exercise and fun while I'm at work. They're a very friendly dog and love meeting new people and other dogs.");
 
    
-INSERT INTO dog_type (dog_type, description) VALUES
+INSERT INTO dog_type (type_name, description) VALUES
     ('Toy Dog', 'These breeds were bred to be small companion dogs and are typically playful and affectionate. Examples of toy dog breeds include the Chihuahua, Pomeranian, and Toy Poodle.'),
     ('Terrier Dog', 'These breeds were originally bred to hunt small game and vermin, and are known for their tenacity and energy. Examples of terrier dog breeds include the Jack Russell Terrier, Scottish Terrier, and West Highland White Terrier.'),
     ('Sporting Dog', 'These breeds were bred for hunting and retrieving game, and are generally active and energetic. Examples of sporting dog breeds include the Labrador Retriever, Golden Retriever, and English Springer Spaniel.'),
@@ -99,7 +99,7 @@ INSERT INTO dog_type (dog_type, description) VALUES
 
 INSERT INTO dog (user_id, dog_name, dog_age, type_id, description) VALUES
     (6, 'Buddy','3', 3, 'Buddy is a playful and energetic Labrador Retriever who loves to fetch.'),
-    (7, 'Daisy', '4', 5, 'Rocky is a loyal and protective Border Collie who excels in obedience training.'),
+    (7, 'Daisy', '4', 5, 'Daisy is a loyal and protective Border Collie who excels in obedience training.'),
     (8, 'Papa', '10', 1, 'Papa is a gentle and sweet little Toy Poodle who likes short walks and cuddles.'),
     (9, 'Scotty', '7', 2, 'Scotty is a Scottish Terrier, he is playful and needs someone who will be able to handle his energy.'),
     (10, 'Harriet', '5', 4, 'Harriet is a very vocal Siberian Husky who loves a run in the outdoors.'),
@@ -110,16 +110,16 @@ INSERT INTO dog (user_id, dog_name, dog_age, type_id, description) VALUES
     (15, 'Bandit', '6', 5, 'Bandit is an Australian Cattle Dog. He is super smart so would love someone who can give him extra enrichment in the form of training.');
 
 INSERT INTO dog_photos (dog_id, photo) VALUES
-    (1, 'static/images/buddy.png'),
-    (2, 'static/images/daisy.png'),
-    (3, 'static/images/papa.png'),
-    (4, 'static/images/scotty.png'),
-    (5, 'static/images/harriet.png'),
-    (6, 'static/images/mabel.png'),
-    (7, 'static/images/archie.png'),
-    (8, 'static/images/lucky.png'),
-    (9, 'static/images/cheese.png'),
-    (10, 'static/images/bandit.png');
+    (1, 'buddy.png'),
+    (2, 'daisy.png'),
+    (3, 'papa.png'),
+    (4, 'scotty.png'),
+    (5, 'harriet.png'),
+    (6, 'mabel.png'),
+    (7, 'archie.png'),
+    (8, 'lucky.png'),
+    (9, 'cheese.png'),
+    (10, 'bandit.png');
 
 INSERT INTO sitter_type (sitter_type) VALUES
     ('Toy Dog'),

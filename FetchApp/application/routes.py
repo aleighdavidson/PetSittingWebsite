@@ -47,7 +47,7 @@ def try_login():
 def success(id):
     return 'welcome %s' % id
 
-
+# ROUTE display Account Details
 @app.route('/account/<id>', methods=['GET', 'POST'])
 def account(id):
     error = ""

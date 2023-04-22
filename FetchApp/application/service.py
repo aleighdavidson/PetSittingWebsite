@@ -11,7 +11,8 @@ def check_login_details(email, password):
 
 
 def get_account_details(id):
-    return db.session.query(User).filter_by(id=id).first()
+    user = db.session.query(User).filter_by(id=id).first()
+    return user
 
 
 ######## TESTING ############

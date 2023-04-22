@@ -1,5 +1,4 @@
 <h1>Account Details</h1>
-
 <div>
   <h2>About You</h2>
   <p>First Name: {{user.first_name}}</p>
@@ -13,10 +12,13 @@
   {% if user.user_type == "Owner" %}
     <h2>About Your Dogs</h2>
     {% for dog in user.dog %}
+      {% for photo in dog.dog_photo %}
+        <img src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
+      {% endfor %}
     <p>Name: {{dog.dog_name}}</p>
-    <p>Age: *should add to db!* </p>
+    <p>Age: {{dog.dog_age}} </p>
     <p>Description: {{dog.description}}</p>
-    <p>Type: {{dog.type_id}}</p>
+    <p>Type: {{dog.dog_type.type_name}}</p>
     {% endfor %}
   {% endif %}
     <br>

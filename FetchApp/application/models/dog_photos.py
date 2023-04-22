@@ -17,4 +17,4 @@ class DogPhoto(db.Model):
     dog_id: Mapped[int] = mapped_column(db.Integer, db.ForeignKey('dog.id'))
     photo: Mapped[str] = mapped_column(db.String)
 
-    # dog: Mapped[List["Dog"]] = relationship("Dog", back_populates='dog_photos')
+    dog: Mapped[List["Dog"]] = relationship("Dog", back_populates='dog_photo')
