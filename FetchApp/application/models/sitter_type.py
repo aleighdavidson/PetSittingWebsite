@@ -9,10 +9,10 @@ from typing import List
 class SitterType(db.Model):
     __tablename__ = 'sitter_type'
 
-    sitter_type_id: int
+    id: int
     sitter_type: str
 
-    sitter_type_id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
+    id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     sitter_type: Mapped[str] = mapped_column(db.String)
 
     sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='sitter_type')

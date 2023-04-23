@@ -8,6 +8,8 @@ from application.models.dog_type import DogType
 from application.models.sitter_type import SitterType
 from application.models.sitter_type_link import SitterTypeLink
 from application.models.sitter_dog_link import SitterDogLink
+from application.forms.UserForm import UserForm
+from application.forms.DogForm import DogForm
 
 
 # ROUTE Landing Page
@@ -47,12 +49,49 @@ def try_login():
 def success(id):
     return 'welcome %s' % id
 
+
 # ROUTE display Account Details
 @app.route('/account/<id>', methods=['GET', 'POST'])
 def account(id):
     error = ""
     user = service.get_account_details(id)
     return render_template('account.html', user=user, message=error)
+
+
+@app.route('/editaccount/<id>', methods=['GET', 'POST'])
+def edit_account(id):
+    error = ""
+    current_user = service.get_account_details(id)
+    form = UserForm(obj=current_user)
+    dogform = DogForm()
+    if current_user.user_type == "Owner":
+        for dog in current_user.dog:
+            dogform = DogForm(obj=dog)
+            dogform.dog_type_list.data = dog.dog_type
+    elif current_user.user_type == "Sitter":
+        for i in current_user.sitter_type_link:
+            current_sitter_type = i.sitter_type
+        form.sitter_type_list.data = current_sitter_type
+
+    if request.method == 'POST':
+        form = UserForm(request.form)
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.city = form.city.data
+        current_user.phone = form.phone.data
+        current_user.email = form.email.data
+        current_user.bio = form.bio.data
+        if current_user.user_type == "Owner":
+            dog.dog_name = dogform.dog_name.data
+            dog.dog_age = dogform.dog_age.data
+            dog.description = dogform.description.data
+            service.save_dog_changes(dog)
+        service.save_account_changes(current_user)
+
+        updated_user = service.get_account_details(current_user.id)
+        return render_template('account.html', user=updated_user, message=error)
+    return render_template('change_account_details_form.html', form=form, dogform=dogform, user=current_user, message=error)
+
 
 ########## TESTING ################
 

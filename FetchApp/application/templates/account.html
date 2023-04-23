@@ -8,6 +8,9 @@
   <p>Email Address: {{user.email}}</p>
   <p>Bio: {{user.bio}}</p>
 </div>
+<button class ="buttonCustom" type="button">
+  <a>
+    Edit Your Details</button>
 <div>
   {% if user.user_type == "Owner" %}
     <h2>About Your Dogs</h2>
@@ -20,6 +23,7 @@
     <p>Description: {{dog.description}}</p>
     <p>Type: {{dog.dog_type.type_name}}</p>
     {% endfor %}
+  <input class ="buttonCustom" type="submit" value="Edit Dog Details" onclick="" >
   {% endif %}
     <br>
     {{ message }}

@@ -1,0 +1,100 @@
+<h1>Edit Account Details</h1>
+<div class='container-sm' style="width:50%">
+    <h2>About You</h2>
+    <form method='POST' action=''>
+        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.first_name.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.first_name (class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.last_name.label(class_="form-label")}}</div>
+                <div class="col-md-10">{{ form.last_name(class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.city.label (class_="form-label")}}</div>
+                <div class="col-md-10">{{ form.city(class_="form-control", size =32) }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.phone.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.phone(class_="form-control", size =32) }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.email.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.email(class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.bio.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.bio(class_="form-control", size =32)}}</div>
+            </div>
+        </div>
+        {% if user.user_type == "Sitter" %}
+        <div class="row">
+            <div class = "mb-3">
+                <div class="col-md-2">{{ form.sitter_type_list.label (class_="form-label") }}</div>
+                <div class="col-md-10">{{ form.sitter_type_list}}</div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.submit(class_="btn btn-primary mb-3") }}</div>
+                </div>
+        </div>
+            {{ message }}
+    </form>
+</div>
+
+{% if user.user_type == "Owner" %}
+<div class='container-sm' style="width:50%">
+    <h2>About Your Dogs</h2>
+    <form method='POST' action=''>
+        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+        {{ form.csrf_token }}
+            {% for dog in user.dog %}
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ dogform.dog_name.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ dogform.dog_name (class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ dogform.dog_age.label(class_="form-label")}}</div>
+                    <div class="col-md-10">{{ dogform.dog_age(class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ dogform.dog_type_list.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ dogform.dog_type_list}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ dogform.description.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ dogform.description(class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ dogform.submit(class_="btn btn-primary mb-3") }}</div>
+                </div>
+        </div>
+            {{ message }}
+    </form>
+</div>
+{% endif %}

@@ -14,6 +14,15 @@ def get_account_details(id):
     user = db.session.query(User).filter_by(id=id).first()
     return user
 
+def save_account_changes(user):
+    db.session.add(user)
+    db.session.commit()
+
+
+def save_dog_changes(dog):
+    db.session.add(dog)
+    db.session.commit()
+
 
 ######## TESTING ############
 # def get_all_users():
