@@ -55,20 +55,15 @@ def success(id):
 def account(id):
     error = ""
     user = service.get_account_details(id)
-    return render_template('account.html', user=user, message=error)
+    return render_template('account.html', user=user, pageTitle='Account Details', message=error)
 
 
-@app.route('/editaccount/<id>', methods=['GET', 'POST'])
-def edit_account(id):
+@app.route('/edituser/<id>', methods=['GET', 'POST'])
+def edit_user(id):
     error = ""
     current_user = service.get_account_details(id)
     form = UserForm(obj=current_user)
-    dogform = DogForm()
-    if current_user.user_type == "Owner":
-        for dog in current_user.dog:
-            dogform = DogForm(obj=dog)
-            dogform.dog_type_list.data = dog.dog_type
-    elif current_user.user_type == "Sitter":
+    if current_user.user_type == "Sitter":
         for i in current_user.sitter_type_link:
             current_sitter_type = i.sitter_type
         form.sitter_type_list.data = current_sitter_type
@@ -81,16 +76,32 @@ def edit_account(id):
         current_user.phone = form.phone.data
         current_user.email = form.email.data
         current_user.bio = form.bio.data
-        if current_user.user_type == "Owner":
-            dog.dog_name = dogform.dog_name.data
-            dog.dog_age = dogform.dog_age.data
-            dog.description = dogform.description.data
-            service.save_dog_changes(dog)
-        service.save_account_changes(current_user)
 
+        service.save_account_changes(current_user)
         updated_user = service.get_account_details(current_user.id)
-        return render_template('account.html', user=updated_user, message=error)
-    return render_template('change_account_details_form.html', form=form, dogform=dogform, user=current_user, message=error)
+        return render_template('account.html', user=updated_user, pageTitle='Account Details', message=error)
+    return render_template('edit_user_details_form.html',
+                           form=form, user=current_user, pageTitle='Edit User Details', message=error)
+
+
+@app.route('/editdog/<id>', methods=['GET', 'POST'])
+def edit_dog(id):
+    error = ""
+    current_dog = service.get_dog(id)
+    form = DogForm(obj=current_dog)
+    form.dog_type_list.data = current_dog.dog_type
+
+    if request.method == 'POST':
+        form = DogForm(request.form)
+        current_dog.dog_name = form.dog_name.data
+        current_dog.dog_age = form.dog_age.data
+        current_dog.description = form.description.data
+        service.save_dog_changes(current_dog)
+
+        updated_user = service.get_account_details(current_dog.user.id)
+        return render_template('account.html', user=updated_user, pageTitle='Account Details', message=error)
+    return render_template('edit_dog_details_form.html',
+                           form=form, dog=current_dog, pageTitle='Edit Dog Details', message=error)
 
 
 ########## TESTING ################

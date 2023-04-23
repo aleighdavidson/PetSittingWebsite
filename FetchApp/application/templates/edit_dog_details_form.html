@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<div class='container-sm' style="width:50%">
+    <h2>Edit Dog Details</h2>
+    <form method='POST' action=''>
+        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+        {{ form.csrf_token }}
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.dog_name.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.dog_name (class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.dog_age.label(class_="form-label")}}</div>
+                    <div class="col-md-10">{{ form.dog_age(class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.dog_type_list.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.dog_type_list}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.description.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.description(class_="form-control", size =32)}}</div>
+                </div>
+            </div>
+        <div class="row">
+                <div class = "mb-3">
+                    <div class="col-md-2">{{ form.submit(class_="buttonCustom") }}</div>
+                </div>
+        </div>
+            {{ message }}
+    </form>
+</div>
+{% endblock %}

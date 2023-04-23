@@ -52,52 +52,10 @@
         {% endif %}
         <div class="row">
                 <div class = "mb-3">
-                    <div class="col-md-2">{{ form.submit(class_="btn btn-primary mb-3") }}</div>
+                    <div class="col-md-2">{{ form.submit(class_="buttonCustom") }}</div>
                 </div>
         </div>
             {{ message }}
     </form>
 </div>
-
-{% if user.user_type == "Owner" %}
-<div class='container-sm' style="width:50%">
-    <h2>About Your Dogs</h2>
-    <form method='POST' action=''>
-        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
-        {{ form.csrf_token }}
-            {% for dog in user.dog %}
-            <div class="row">
-                <div class = "mb-3">
-                    <div class="col-md-2">{{ dogform.dog_name.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ dogform.dog_name (class_="form-control", size =32)}}</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class = "mb-3">
-                    <div class="col-md-2">{{ dogform.dog_age.label(class_="form-label")}}</div>
-                    <div class="col-md-10">{{ dogform.dog_age(class_="form-control", size =32)}}</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class = "mb-3">
-                    <div class="col-md-2">{{ dogform.dog_type_list.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ dogform.dog_type_list}}</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class = "mb-3">
-                    <div class="col-md-2">{{ dogform.description.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ dogform.description(class_="form-control", size =32)}}</div>
-                </div>
-            </div>
-            {% endfor %}
-        <div class="row">
-                <div class = "mb-3">
-                    <div class="col-md-2">{{ dogform.submit(class_="btn btn-primary mb-3") }}</div>
-                </div>
-        </div>
-            {{ message }}
-    </form>
-</div>
-{% endif %}
 {% endblock %}
