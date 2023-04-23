@@ -93,6 +93,13 @@ def edit_account(id):
     return render_template('change_account_details_form.html', form=form, dogform=dogform, user=current_user, message=error)
 
 
+@app.route('/dog_profile/<id>', methods=['GET'])
+def show_dog_profile(id):
+    error = ""
+    dog = service.get_dog_profile(id)
+    return render_template('dog_profile.html', dog=dog, message=error)
+
+
 ########## TESTING ################
 
 # @app.route('/users', methods=['GET'])

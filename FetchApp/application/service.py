@@ -24,6 +24,10 @@ def save_dog_changes(dog):
     db.session.commit()
 
 
+def get_dog_profile(id):
+    return db.session.query(Dog).filter_by(id=id).first()
+
+
 ######## TESTING ############
 # def get_all_users():
 #     return db.session.query(User).all()
