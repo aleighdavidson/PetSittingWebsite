@@ -19,6 +19,7 @@ def get_dog(id):
     dog = db.session.query(Dog).filter_by(id=id).first()
     return dog
 
+
 def save_account_changes(user):
     db.session.add(user)
     db.session.commit()
@@ -29,7 +30,15 @@ def save_dog_changes(dog):
     db.session.commit()
 
 
-######## TESTING ############
+def match_dog(type_id):
+    dog = db.session.query(Dog).filter(Dog.type_id == type_id).all()
+    # print(dog)
+    # for x in dog:
+    #     print(x)
+    #     print(x.dog_name)
+    return dog
+
+# TESTING ############
 # def get_all_users():
 #     return db.session.query(User).all()
 #

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+<div>
+  <img src="../static/images/logo 1.png" alt="Logo"/>
+</div>
+
+<div class='container-sm'>
+  <h2>Your matches</h2>
+  {% for d in dog %}
+    {% for photo in d.dog_photo %}
+      <img class="imgPreview" src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
+    {% endfor %}
+    <p>Name: {{d.dog_name}}</p>
+    <p>Age: {{d.dog_age}} years old</p>
+    <p>Description: {{d.description}}</p>
+    <p>Dog Group: {{d.dog_type.type_name}}</p>
+    <p>Owner: {{d.user.first_name}} {{d.user.last_name}}</p>
+    <p>Contact: {{d.user.email}}</p>
+</div>
+  {% endfor %}
+  <br>
+  {{ message }}
+
+{% endblock %}

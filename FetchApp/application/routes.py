@@ -39,9 +39,9 @@ def try_login():
         # if unsuccessful, will return an error message along with the login page again
         error = "Incorrect details. Please try a different login"
     return \
-        render_template('header.html', pageTitle="Login Page") + \
-        render_template('login.html', error=error) + \
-        render_template('footer.html')
+            render_template('header.html', pageTitle="Login Page") + \
+            render_template('login.html', error=error) + \
+            render_template('footer.html')
 
 
 # ROUTE This will be our matches page if login successful > it now returns the user ID associated with login details)
@@ -104,7 +104,14 @@ def edit_dog(id):
                            form=form, dog=current_dog, pageTitle='Edit Dog Details', message=error)
 
 
-########## TESTING ################
+@app.route('/matches/<type_id>')
+def matches(type_id):
+    # retrieve all dogs of the specified dog type
+    dog = service.match_dog(type_id)
+    return render_template('matches.html', dog=dog)
+
+
+# TESTING ################
 
 # @app.route('/users', methods=['GET'])
 # def show_users():
