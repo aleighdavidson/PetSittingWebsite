@@ -2,3 +2,5 @@ flask-sqlalchemy
 pymysql
 flask==2.2
 WTForms~=2.3.3
+Flask_WTF
+email_validator
