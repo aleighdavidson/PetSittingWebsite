@@ -3,6 +3,7 @@
 	--cream: #F7EEE2;
 	--lightGreen: #D4E3D7;
 	--green: #74A57F;
+	--red: #CD0000;
 	--font: 'rancho';
 }
 
@@ -97,3 +98,7 @@ input{
   padding: 5px;
   width: 150px;
   }
+
+.buttonWarning {
+	background-color:var(--red);
+	color: white;

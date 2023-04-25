@@ -1,5 +1,12 @@
 {% extends "layout.html" %}
 {% block body_content %}
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
 <div>
   <h2>About You</h2>
   <button class="buttonCustom", onclick="redirectUser({{user.id}})">Edit Your Details</button>
@@ -15,7 +22,7 @@
 <div class='container-sm'>
   <h2>About Your Dogs</h2>
   {% for dog in user.dog %}
-  <button class="buttonCustom", onclick="redirectDog({{dog.id}})">Edit Dog Details</button>
+    <button class="buttonCustom", onclick="redirectDog({{dog.id}})">Edit Dog</button>
     <p>Name: {{dog.dog_name}}</p>
     <p>Age: {{dog.dog_age}} </p>
     <p>Description: {{dog.description}}</p>
@@ -29,4 +36,8 @@
   <br>
   {{ message }}
 </div>
+ <form method='POST' action=''>
+     {{ delete_form.csrf_token }}
+    <button type="submit" class="buttonCustom buttonWarning">Delete Account</button>
+ </form>
 {% endblock %}

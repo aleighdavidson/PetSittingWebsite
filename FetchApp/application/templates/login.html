@@ -1,4 +1,11 @@
 	<!-- this is the login page divs. it will display inbetween header and footer -->
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
 	<div class="loginContainer">
 		<div id="loginHeading">
 			<div>

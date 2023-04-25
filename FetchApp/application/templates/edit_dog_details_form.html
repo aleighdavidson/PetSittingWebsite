@@ -34,7 +34,12 @@
                     <div class="col-md-2">{{ form.submit(class_="buttonCustom") }}</div>
                 </div>
         </div>
+        <div><button class="buttonCustom", onclick="redirectCancel({{dog.user.id}})">Cancel</button></div>
             {{ message }}
+    </form>
+    <form method='DELETE' action=''>
+     {{ delete_form.csrf_token }}
+        <button type="submit" class="buttonCustom buttonWarning">Remove Dog</button>
     </form>
 </div>
 {% endblock %}
