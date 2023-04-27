@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='carousel.css') }}"
+    />
+
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+
+  <body>
+    <h1>Your matches</h1>
+
+    <div class="carousel">
+      {% for d in dog %}
+      <div class="carousel-item">
+        {% for photo in d.dog_photo %}
+        <div class="carousel-box">
+          <img
+            class="imgPreview"
+            src="{{ url_for('static', filename ='images/'+ photo.photo) }}"
+          />
+          <div class="container-sm"></div>
+          <div class="title">{{d.dog_name}}</div>
+          <p class="description">
+            Age: {{d.dog_age}} years old <br />Description: {{d.description}}
+          </p>
+
+          <!-- <div class="num">01</div> -->
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor cursor2"></div>
+    <script src="{{ url_for('static', filename='carousel.js') }}"></script>
+    <br />
+    {{ message }}
+  </body>
+</html>

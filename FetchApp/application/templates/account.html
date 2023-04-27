@@ -1,6 +1,8 @@
-<h1>Account Details</h1>
+{% extends "layout.html" %}
+{% block body_content %}
 <div>
   <h2>About You</h2>
+  <button class="buttonCustom", onclick="redirectUser({{user.id}})">Edit Your Details</button>
   <p>First Name: {{user.first_name}}</p>
   <p>Last Name: {{user.last_name}}</p>
   <p>City: {{user.city}}</p>
@@ -8,23 +10,23 @@
   <p>Email Address: {{user.email}}</p>
   <p>Bio: {{user.bio}}</p>
 </div>
-<button class ="buttonCustom" type="button">
-  <a>
-    Edit Your Details</button>
-<div>
-  {% if user.user_type == "Owner" %}
-    <h2>About Your Dogs</h2>
-    {% for dog in user.dog %}
-      {% for photo in dog.dog_photo %}
-        <img src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
-      {% endfor %}
+
+{% if user.user_type == "Owner" %}
+<div class='container-sm'>
+  <h2>About Your Dogs</h2>
+  {% for dog in user.dog %}
+  <button class="buttonCustom", onclick="redirectDog({{dog.id}})">Edit Dog Details</button>
     <p>Name: {{dog.dog_name}}</p>
     <p>Age: {{dog.dog_age}} </p>
     <p>Description: {{dog.description}}</p>
     <p>Type: {{dog.dog_type.type_name}}</p>
+    {% for photo in dog.dog_photo %}
+      <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
     {% endfor %}
-  <input class ="buttonCustom" type="submit" value="Edit Dog Details" onclick="" >
-  {% endif %}
-    <br>
-    {{ message }}
 </div>
+  {% endfor %}
+{% endif %}
+  <br>
+  {{ message }}
+</div>
+{% endblock %}
