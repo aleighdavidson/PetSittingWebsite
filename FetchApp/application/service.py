@@ -30,6 +30,16 @@ def save_dog_changes(dog):
     db.session.commit()
 
 
+def delete_user(id):
+    db.session.query(User).filter_by(id=id).delete()
+    db.session.commit()
+
+
+def delete_dog(dog):
+    db.session.query(Dog).filter_by(id=dog.id).delete()
+    db.session.commit()
+
+
 def match_dog(type_id):
     dog = db.session.query(Dog).filter(Dog.type_id == type_id).all()
     # print(dog)

@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, request, redirect, url_for
+from flask import render_template, jsonify, request, redirect, url_for, flash
 import hashlib
 from application import app, service, db
 from application.models.user import User
@@ -10,6 +10,7 @@ from application.models.sitter_type_link import SitterTypeLink
 from application.models.sitter_dog_link import SitterDogLink
 from application.forms.UserForm import UserForm
 from application.forms.DogForm import DogForm
+from application.forms.DeleteUserForm import DeleteUserForm
 
 
 # ROUTE Landing Page
@@ -34,7 +35,7 @@ def try_login():
         user = service.check_login_details(attempted_email, encrypted_password)
         # if statement: user exists will return their ID and success URL
         if user:
-            return redirect(url_for('success', id=user.id))
+            return redirect(url_for('account', id=user.id))
         # if unsuccessful, will return an error message along with the login page again
         error = "Incorrect details. Please try a different login"
     return render_template('login.html', error=error, pageTitle="Login Page")
@@ -58,11 +59,16 @@ def success(id):
 
 
 # ROUTE display Account Details
-@app.route('/account/<id>', methods=['GET', 'POST'])
+@app.route('/account/<id>', methods=['GET', 'POST', 'DELETE'])
 def account(id):
     error = ""
     user = service.get_account_details(id)
-    return render_template('account.html', user=user, pageTitle='Account Details', message=error)
+    delete_form = DeleteUserForm()
+    if request.method == 'POST':
+        service.delete_user(id)
+        flash('Account Deleted')
+        return redirect(url_for('try_login'))
+    return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details', message=error)
 
 
 @app.route('/edituser/<id>', methods=['GET', 'POST'])
@@ -85,30 +91,34 @@ def edit_user(id):
         current_user.bio = form.bio.data
 
         service.save_account_changes(current_user)
-        updated_user = service.get_account_details(current_user.id)
-        return render_template('account.html', user=updated_user, pageTitle='Account Details', message=error)
+        flash('Changes successfully saved')
+        return redirect(url_for('account', id=id))
     return render_template('edit_user_details_form.html',
                            form=form, user=current_user, pageTitle='Edit User Details', message=error)
 
 
-@app.route('/editdog/<id>', methods=['GET', 'POST'])
+@app.route('/editdog/<id>', methods=['GET', 'POST', 'DELETE'])
 def edit_dog(id):
     error = ""
     current_dog = service.get_dog(id)
     form = DogForm(obj=current_dog)
     form.dog_type_list.data = current_dog.dog_type
-
+    delete_form = DeleteUserForm()
     if request.method == 'POST':
         form = DogForm(request.form)
         current_dog.dog_name = form.dog_name.data
         current_dog.dog_age = form.dog_age.data
         current_dog.description = form.description.data
         service.save_dog_changes(current_dog)
-
-        updated_user = service.get_account_details(current_dog.user.id)
-        return render_template('account.html', user=updated_user, pageTitle='Account Details', message=error)
+        flash('Changes successfully saved')
+        return redirect(url_for('account', id=current_dog.user.id))
+    elif request.method == 'DELETE':
+        service.delete_dog(current_dog)
+        flash('Dog Removed')
+        return redirect(url_for('account', id=id))
     return render_template('edit_dog_details_form.html',
-                           form=form, dog=current_dog, pageTitle='Edit Dog Details', message=error)
+                           form=form, delete_form=delete_form, dog=current_dog,
+                           pageTitle='Edit Dog Details', message=error)
 
 
 @app.route('/matches/<type_id>')

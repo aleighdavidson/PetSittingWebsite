@@ -1,3 +1,11 @@
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
 {% extends "layout.html" %}
 {% block body_content %}
 	<div class="gridContainer">
@@ -8,7 +16,6 @@
 					<p> Creating Pawsitive Connections </p>
 					<img src="/static/images/dog.png">
 				</div>
-
 			</div>
 			<div class="loginContainer">
 				<div id="loginHeading">

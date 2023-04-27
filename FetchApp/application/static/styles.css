@@ -1,4 +1,5 @@
 /* This is for all templates */
+
 :root{
     --loginBackground: #9BD2DE;
     --font:courier;
@@ -82,6 +83,10 @@ body {
   width: 150px;
   }
 
+.buttonWarning {
+	background-color:var(--red);
+	color: white;
+
 
 /* media queries */
 
@@ -154,3 +159,4 @@ body {
 		border-radius: 0;
 	}
   }
+  

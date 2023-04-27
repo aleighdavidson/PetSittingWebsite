@@ -1,10 +1,18 @@
 function redirectUser(id){
-window.location.href ='http://127.0.0.1:5000/edituser/'+ id;
+window.location.href = 'http://127.0.0.1:5000/edituser/'+ id;
 }
 
 function redirectDog(id){
 window.location.href ='http://127.0.0.1:5000/editdog/'+ id;
 }
+
+delete-function
+function redirectCancel(id){
+window.location.href ='http://127.0.0.1:5000/account/'+ id;
+}
+
+function removeDog(id){
+service.remove_dog(id)}
 
 // Switches buttons between sitter and owner (finish Account Page) //
 function switchTab(value) {
@@ -54,4 +62,5 @@ function tryLogin() {
     passwordVar  = document.getElementById('passwordInput').value;
     window.location.href = '/login?' + emailVar + '?' + passwordVar;
 }
+
 
