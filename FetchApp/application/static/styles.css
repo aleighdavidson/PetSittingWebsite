@@ -1,94 +1,78 @@
 /* This is for all templates */
-:root {
-	--cream: #F7EEE2;
-	--lightGreen: #D4E3D7;
-	--green: #74A57F;
-	--red: #CD0000;
-	--font: 'rancho';
+
+:root{
+    --loginBackground: #9BD2DE;
+    --font:courier;
 }
 
 body {
-	background-color: var(--cream);
-	overflow-x: hidden;
-	margin:0;
-}
-/* styling this directly compared to body due to bootstrap styling */
-.bodyStyling {
-	color:white;
-	background-color:var(--cream);
-	margin:0;
-	padding:0;
-	font-family:var(--font)
-}
-
-h3 {
+	margin: 0;
+	padding: 0;
 	font-family: var(--font);
-	color:rgb(0, 0, 0);
-	font-size:50px;
+	font-size: 16px;
 }
 
-.buttonCustom {
-	background-color:var(--green);
-	font-family:var(--font);
-	border-radius:1rem;
-	font-size: 1rem;
-	font-weight: 900;
-	padding: 0.6rem 2.5rem;
+.gridContainer {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 100vw;
+	row-gap: 0px;
 }
 
-.buttonCustom:hover {
-	cursor: pointer;
+.logoContainer {
+	display:grid;
+	grid-template-rows: auto auto;
+	grid-row: 1;
+	grid-column: 1;
+	justify-content:center;
+	align-self:center;
+	align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	height: 100vh;
+}
+
+#waveRotated{
+	height: 110vh;
+	grid-column:2;
+	grid-row:1 / 2;
+	justify-self: right;
+}
+
+#fetchContainer {
+	height: 100%;
+	grid-column:1;
+	grid-row: 1;
+	background-color:#9BD2DE;
 }
 
 
 
 /* Login Template */
-.loginContainer{
-	max-width: 600px;
-	margin: auto;
-	padding-top: 2%;
-	padding-bottom: 2%;
+.loginContainer {
+	display:flex;
+	grid-row: 1;
+	grid-column: 2;
+	justify-content:center;
+	align-self:center;
+	align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	padding: 1rem;
 }
 
 #loginHeading {
-	background-color: white;
-	background-repeat: no-repeat;
-	background-size: cover;
-	text-align:center;
+    text-align: center;
+    font-weight: 500;
 }
 
-#loginHeading > div > p {
-	color:rgb(0, 0, 0);
-	font-size:20px;
-	padding:0;
-	margin:0;
-}
-
-#loginInput {
-	background-color:var(--lightGreen);
-	padding:20px;
-	text-align:center;
-}
-
-input{
-	padding: 12px 30px;
-	margin: 8px 0;
-	box-sizing: border-box;
-  }
-
-.login {
-	font-size: large;
-	color:black;
+#loginHeading > p{
+	padding: 30px 0;
 }
 
 .error {
     color:red;
 }
-/* Sign Up Template */
-
-/* HomePage Template */
-
-/* Matches Template */
 
 /* Account Template */
 
@@ -102,3 +86,77 @@ input{
 .buttonWarning {
 	background-color:var(--red);
 	color: white;
+
+
+/* media queries */
+
+@media (max-width: 900px) {
+	#heroDog {
+		width: 200px;
+	}
+
+	#heroParagraph {
+		transform: translateY(0);
+		margin-bottom: 30px;
+	}
+	#fetchContainer{
+		display:none;
+	}
+
+	#gridContainer {
+		width:294px;
+		overflow: hidden;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+}
+
+@media (max-width: 600px) {
+	.gridContainer {
+		width: 100%;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+	#fetchContainer{
+		display:none;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	#heroColorBackground {
+		grid-row: 1 / 2;
+	}
+
+	#heroBackground {
+		display: none;
+	}
+
+	#heroDog {
+		display: none;
+	}
+
+	#dogTypes {
+		padding: 0;
+	  	flex-direction: column;
+	}
+
+	.textbox {
+		width:100%;
+		border-radius: 0;
+	}
+  }
+  

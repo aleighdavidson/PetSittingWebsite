@@ -1,0 +1,78 @@
+/* Sign Up Template */
+form {
+	width: 100%;
+}
+
+form > input {
+    font-size: 1rem;
+    border: 0;
+    padding: 10px;
+}
+
+form > input[type=email],
+form > input[type=text],
+form > input[type=password] {
+    border-bottom: 3px solid #c7c2c2;
+    margin-bottom: 20px;
+    width: calc(100% - 20px); /* Should be double padding to correct for it */
+}
+
+form > input[type=submit]{
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 20px;
+    background-color:#9BD2DE;
+	width:100%;
+}
+form > input[type=submit]:hover{
+    cursor: pointer;
+    background-color:#077187;
+	color:white;
+}
+
+#SitterTab {
+	width:600px;
+}
+
+#OwnerTab {
+	width:600px;
+}
+
+#tabswitchSitter {
+	background-color:#077187;
+	color: white;
+	padding:10px;
+	border-radius:10%;
+	border:none;
+}
+#tabswitchOwner {
+	background-color:#077187;
+	color: white;
+	padding:10px;
+	border-radius:10%;
+	border:none;
+}
+
+#dropDown {
+	background-color:#077187;
+	color:white;
+	height:40px;
+	width:100px;
+}
+.accountContainer {
+	display:flex;
+	grid-row: 1;
+	grid-column: 2;
+	justify-content:center;
+	align-self:center;
+	align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	padding: 1rem;
+}
+
+#accountHeading {
+    text-align: center;
+    font-weight: 500;
+}
+
+

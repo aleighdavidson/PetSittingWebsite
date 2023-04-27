@@ -1,25 +1,45 @@
-{% extends "layout.html" %}
-{% block body_content %}
+<!DOCTYPE html>
 
-<div>
-  <img src="../static/images/logo 1.png" alt="Logo"/>
-</div>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='carousel.css') }}"
+    />
 
-<div class='container-sm'>
-  <h2>Your matches</h2>
-  {% for d in dog %}
-    {% for photo in d.dog_photo %}
-      <img class="imgPreview" src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
-    {% endfor %}
-    <p>Name: {{d.dog_name}}</p>
-    <p>Age: {{d.dog_age}} years old</p>
-    <p>Description: {{d.description}}</p>
-    <p>Dog Group: {{d.dog_type.type_name}}</p>
-    <p>Owner: {{d.user.first_name}} {{d.user.last_name}}</p>
-    <p>Contact: {{d.user.email}}</p>
-</div>
-  {% endfor %}
-  <br>
-  {{ message }}
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
 
-{% endblock %}
+  <body>
+    <h1>Your matches</h1>
+
+    <div class="carousel">
+      {% for d in dog %}
+      <div class="carousel-item">
+        {% for photo in d.dog_photo %}
+        <div class="carousel-box">
+          <img
+            class="imgPreview"
+            src="{{ url_for('static', filename ='images/'+ photo.photo) }}"
+          />
+          <div class="container-sm"></div>
+          <div class="title">{{d.dog_name}}</div>
+          <p class="description">
+            Age: {{d.dog_age}} years old <br />Description: {{d.description}}
+          </p>
+
+          <!-- <div class="num">01</div> -->
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor cursor2"></div>
+    <script src="{{ url_for('static', filename='carousel.js') }}"></script>
+    <br />
+    {{ message }}
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<div class="heroGridContainer">
+		<div id="heroColorBackground"></div>
+		<img id="heroBackground" src="/static/images/wave.svg">
+		<div class="heroContent">
+			<img src="/static/images/logo 2.png" alt="Logo"/>
+			<div id="heroParagraph">
+				<h1> Our Mission </h1>
+				<p> Our mission is to connect dog sitters with dogs through a safe and reliable platform, fostering positive relationships that enrich both the lives of the dogs and their caretakers. </p>
+				<a class="customLinkStyling" id="loginButton" href="login">Login</a>
+				<a class="customLinkStyling" id="accountButton" href="createAccount">Create Account</a>
+			</div>
+		</div>
+		<img id="heroDog" src="/static/images/dog.png">
+	</div>
+
+	<h1 id="types"> TYPES</h1>
+	<div id="dogTypes">
+		<div>
+			<div class="circle" id="circle1">
+				<img src="/static/images/dogbreeds/toy.png">
+			</div>
+			<div class="textbox">
+				<h1 id="toyText"> Toy </h1>
+				<p> Pint-sized pups with big personalities. </p>
+			</div>
+		</div>
+		<div>
+			<div class="circle" id="circle2"> <img src="/static/images/dogbreeds/terrier.png">
+			</div>
+			<div class="textbox">
+				<h1 id="terrierText"> Terrier </h1>
+				<p> Small but mighty hunters. </p>
+			</div>
+		</div>
+		<div>
+			<div class="circle" id="circle3"> <img src="/static/images/dogbreeds/sporting.png">
+			</div>
+			<div class="textbox">
+				<h1 id="sportText"> Sport </h1>
+				<p> The athletics with a taste for the outdoors. </p>
+			</div>
+		</div>
+		<div>
+			<div class="circle" id="circle4"> <img src="/static/images/dogbreeds/working.png">
+			</div>
+			<div class="textbox">
+				<h1 id="workText"> Work </h1>
+				<p> The workaholics of the canine community. </p>
+			</div>
+		</div>
+		<div>
+			<div class="circle" id="circle5"> <img src="/static/images/dogbreeds/herding.png">
+			</div>
+			<div class="textbox">
+				<h1 id="herdText"> Herd </h1>
+				<p> The ones who keep everything in line. </p>
+			</div>
+
+		</div>
+	</div>
+	<div id="monthContainer">
+		<h1> Look whose in our good books this month!</h1>
+		<div class="card">
+			<div class="imgBox">
+			  <img src="/static/images/papa.png" alt="">
+			</div>
+			<div class="details">
+			  <h2>Pup of the Month</h2>
+			  <p> Papa is in our good books this month. He has stopped barking at the postman while on his walks to the park! Lets put our paws together for Papa </p>
+			  <p> Be sure to check back next month for another proud pup!</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

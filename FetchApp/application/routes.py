@@ -19,8 +19,7 @@ from application.forms.DeleteUserForm import DeleteUserForm
 def catch_all(path):
     if len(path) > 0:
         return 'ERROR 404 %s does not exist' % path
-    return 'Welcome Page'
-    # return render_template('index.html')
+    return render_template('index.html', pageTitle="Index Page")
 
 
 # ROUTE try to login (encrypted for security)
@@ -39,11 +38,19 @@ def try_login():
             return redirect(url_for('account', id=user.id))
         # if unsuccessful, will return an error message along with the login page again
         error = "Incorrect details. Please try a different login"
-    return \
-            render_template('header.html', pageTitle="Login Page") + \
-            render_template('login.html', error=error) + \
-            render_template('footer.html')
+    return render_template('login.html', error=error, pageTitle="Login Page")
 
+
+
+#ROUTE to create account (working with buttons in JS too) just need to fix form posting
+@app.route('/createAccount', methods=['GET', 'POST'])
+def createAccount():
+    return render_template('createAccount.html', pageTitle="Create Account Page")
+
+#ROUTE for finish Account (will sort out js button and posting)
+@app.route('/finishAccount', methods=['GET', 'POST'])
+def finishAccount():
+    return render_template('finishAccount.html', pageTitle="Finish Account Page")
 
 # ROUTE This will be our matches page if login successful > it now returns the user ID associated with login details)
 @app.route('/success/<id>', methods=['GET', 'POST'])
@@ -119,6 +126,13 @@ def matches(type_id):
     # retrieve all dogs of the specified dog type
     dog = service.match_dog(type_id)
     return render_template('matches.html', dog=dog)
+
+# route display dog profile
+@app.route('/dog_profile/<id>', methods=['GET'])
+def show_dog_profile(id):
+    error = ""
+    dog = service.get_dog_profile(id)
+    return render_template('dog_profile.html', dog=dog, message=error)
 
 
 # TESTING ################
