@@ -83,10 +83,32 @@ body {
   width: 150px;
   }
 
-.buttonWarning {
-	background-color:var(--red);
+#buttonWarning {
+	background-color: red;
 	color: white;
+}
 
+.flashMessage {
+    padding: 15px;
+}
+
+.editDetailsRow {
+    padding: 10px;
+}
+
+.form-control {
+    font: courier;
+}
+
+#largerFont{
+    font: courier;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#editBackground{
+    background-color: #9BD2DE;
+}
 
 /* media queries */
 

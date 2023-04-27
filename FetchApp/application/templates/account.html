@@ -1,43 +1,63 @@
 {% extends "layout.html" %}
 {% block body_content %}
-{% with messages = get_flashed_messages() %}
-   {% if messages %}
-      {% for message in messages %}
-         {{ message }}
-      {% endfor %}
-   {% endif %}
-{% endwith %}
-<div>
-  <h2>About You</h2>
-  <button class="buttonCustom", onclick="redirectUser({{user.id}})">Edit Your Details</button>
-  <p>First Name: {{user.first_name}}</p>
-  <p>Last Name: {{user.last_name}}</p>
-  <p>City: {{user.city}}</p>
-  <p>Phone Number: {{user.phone}}</p>
-  <p>Email Address: {{user.email}}</p>
-  <p>Bio: {{user.bio}}</p>
-</div>
+<div class="heroGridContainer">
+		<div id="heroColorBackground"></div>
+		<img id="heroBackground" src="/static/images/wave.svg">
+		<div class="heroContent">
+			<img src="/static/images/logo 2.png" alt="Logo"/>
+			<div>
+				<h1> About You </h1>
+                <div class='heroContent'>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                </div>
+				<a class="customLinkStyling" href="/edituser/{{user.id}}">Edit Your Details</a>
+                <p>First Name: {{user.first_name}}</p>
+                <p>Last Name: {{user.last_name}}</p>
+                <p>City: {{user.city}}</p>
+                <p>Phone Number: {{user.phone}}</p>
+                <p>Email Address: {{user.email}}</p>
+                <p>Bio: {{user.bio}}</p>
+			</div>
+		</div>
+	</div>
 
 {% if user.user_type == "Owner" %}
-<div class='container-sm'>
-  <h2>About Your Dogs</h2>
-  {% for dog in user.dog %}
-    <button class="buttonCustom", onclick="redirectDog({{dog.id}})">Edit Dog</button>
-    <p>Name: {{dog.dog_name}}</p>
-    <p>Age: {{dog.dog_age}} </p>
-    <p>Description: {{dog.description}}</p>
-    <p>Type: {{dog.dog_type.type_name}}</p>
-    {% for photo in dog.dog_photo %}
-      <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
-    {% endfor %}
+<div class="heroGridContainer">
+            <div class="heroContent">
+                <div>
+                    <h1> About Your Dogs </h1>
+                    {% for dog in user.dog %}
+                    <a class="customLinkStyling" href="/editdog/{{dog.id}}">Edit Dog</a>
+                    <p>Name: {{dog.dog_name}}</p>
+                    <p>Age: {{dog.dog_age}} </p>
+                    <p>Description: {{dog.description}}</p>
+                    <p>Type: {{dog.dog_type.type_name}}</p>
+                    {% for photo in dog.dog_photo %}
+                      <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 </div>
   {% endfor %}
 {% endif %}
   <br>
   {{ message }}
 </div>
- <form method='POST' action=''>
-     {{ delete_form.csrf_token }}
-    <button type="submit" class="buttonCustom buttonWarning">Delete Account</button>
- </form>
+<div class="heroGridContainer">
+    <div class="heroContent">
+        <div>
+             <form method='POST' action=''>
+                 {{ delete_form.csrf_token }}
+                <button type="submit" id="buttonWarning" class="customLinkStyling">Delete Account</button>
+             </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

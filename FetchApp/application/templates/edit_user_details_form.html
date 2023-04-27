@@ -1,62 +1,69 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<h1>Edit Account Details</h1>
-<div class='container-sm' style="width:50%">
-    <h2>About You</h2>
-    <form method='POST' action=''>
-        <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
-        {{ form.csrf_token }}
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.first_name.label (class_="form-label") }}</div>
-                <div class="col-md-10">{{ form.first_name (class_="form-control", size =32)}}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.last_name.label(class_="form-label")}}</div>
-                <div class="col-md-10">{{ form.last_name(class_="form-control", size =32)}}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.city.label (class_="form-label")}}</div>
-                <div class="col-md-10">{{ form.city(class_="form-control", size =32) }}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.phone.label (class_="form-label") }}</div>
-                <div class="col-md-10">{{ form.phone(class_="form-control", size =32) }}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.email.label (class_="form-label") }}</div>
-                <div class="col-md-10">{{ form.email(class_="form-control", size =32)}}</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.bio.label (class_="form-label") }}</div>
-                <div class="col-md-10">{{ form.bio(class_="form-control", size =32)}}</div>
-            </div>
-        </div>
-        {% if user.user_type == "Sitter" %}
-        <div class="row">
-            <div class = "mb-3">
-                <div class="col-md-2">{{ form.sitter_type_list.label (class_="form-label") }}</div>
-                <div class="col-md-10">{{ form.sitter_type_list}}</div>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row">
+<div class='heroGridContainer' id="editBackground">
+    <div>
+        <img src="/static/images/logo 2.png" alt="Logo"/>
+    </div>
+    <div class="heroContent">
+        <h2>Edit Your Details</h2>
+        <form method='POST' action=''>
+            <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+            {{ form.csrf_token }}
+            <div class="row editDetailsRow">
                 <div class = "mb-3">
-                    <div class="col-md-2">{{ form.submit(class_="buttonCustom") }}</div>
+                    <div class="col-md-2", id="largerFont">{{ form.first_name.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.first_name (class_="form-control", size =32, id="largerFont")}}</div>
                 </div>
-        </div>
-        <div><button class="buttonCustom", onclick="redirectCancel({{user.id}})">Cancel</button></div>
-            {{ message }}
-    </form>
+            </div>
+            <div class="row editDetailsRow">
+                <div class = "mb-3">
+                    <div class="col-md-2", id="largerFont">{{ form.last_name.label(class_="form-label")}}</div>
+                    <div class="col-md-10">{{ form.last_name(class_="form-control", size =32, id="largerFont")}}</div>
+                </div>
+            </div>
+            <div class="row editDetailsRow">
+                <div class = "mb-3">
+                    <div class="col-md-2", id="largerFont">{{ form.city.label (class_="form-label")}}</div>
+                    <div class="col-md-10">{{ form.city(class_="form-control", size =32, id="largerFont") }}</div>
+                </div>
+            </div>
+            <div class="row editDetailsRow">
+                <div class = "mb-3">
+                    <div class="col-md-2", id="largerFont">{{ form.phone.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.phone(class_="form-control", size =32, id="largerFont") }}</div>
+                </div>
+            </div>
+            <div class="row editDetailsRow">
+                <div class = "mb-3">
+                    <div class="col-md-2", id="largerFont">{{ form.email.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.email(class_="form-control", size =32, id="largerFont")}}</div>
+                </div>
+            </div>
+            <div class="row editDetailsRow">
+                <div class = "mb-3">
+                    <div class="col-md-2", id="largerFont">{{ form.bio.label (class_="form-label") }}</div>
+                    <div class="col-md-10">{{ form.bio(class_="form-control", size =32,
+                        cols="32", rows="6", id="largerFont")}}</div>
+                </div>
+            </div>
+<!--            {% if user.user_type == "Sitter" %}--> <!-- edit SitterType not functional -->
+<!--            <div class="row editDetailsRow">-->
+<!--                <div class = "mb-3">-->
+<!--                    <div class="col-md-2">{{ form.sitter_type_list.label (class_="form-label") }}</div>-->
+<!--                    <div class="col-md-10">{{ form.sitter_type_list}}</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            {% endif %}-->
+            <div class="row editDetailsRow">
+                    <div class = "mb-3">
+                        <div class="col-md-2">{{ form.submit(class_="customLinkStyling") }}</div>
+                    </div>
+            </div>
+            <div class="row editDetailsRow">
+                <button class="customLinkStyling", onclick="redirectCancel({{user.id}})">Cancel</button>
+            </div>
+                {{ message }}
+        </form>
+    </div>
 </div>
 {% endblock %}
