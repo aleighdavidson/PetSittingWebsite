@@ -37,6 +37,11 @@ def match_dog(type_id):
     #     print(x)
     #     print(x.dog_name)
     return dog
+    
+    
+def get_dog_profile(id):
+    return db.session.query(Dog).filter_by(id=id).first()
+
 
 # TESTING ############
 # def get_all_users():
