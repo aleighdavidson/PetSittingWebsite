@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<div class="gridContainer">
+			<div class="logoContainer">
+					<img src="/static/images/logo 2.png" alt=""> <br>
+					<p> Creating Pawsitive Connections </p>
+					<img src="/static/images/dog.png">
+			</div>
+			<div class="accountContainer">
+			<h1> Are you a Sitter or Owner? </h1>
+			<div class="tabSelector">
+				<button class="tabLink selectedTab" id="tabswitchSitter" onclick="switchTab('SitterTab')"> I am a Sitter</button>
+				<button class="tabLink" id="tabswitchOwner" onclick="switchTab('OwnerTab')"> I am an Owner</button>
+			</div>
+			<div class="tabs">
+				<div id="SitterTab">
+					<h2> Sitter - Questionnaire </h2>
+					<form>
+						<form action="">
+							<p>How much time do you have to dedicate to walking a dog a day?</p>
+							<input type="radio" name="1" value="a">
+							<label> A. Less than 30 minutes</label>
+							<br>
+							<input type="radio" name="1" value="b">
+							<label>B. 30 minutes to 1 hour</label>
+							<br>
+							<input type="radio" name="1" value="c">
+							<label>C. 1 hour to 1.5 hours</label>
+							<br>
+							<input type="radio" name="1" value="d">
+							<label>D. 1.5 hours to 2 hours</label>
+							<br>
+							<input type="radio" name="1" value="e">
+							<label>E. Over 2 hours </label>
+							<br>
+
+							<br>
+							<p> How much experience do you have with dogs?</p>
+							<input type="radio" name="1" value="a">
+							<label> A. Minimal</label>
+							<br>
+							<input type="radio" name="1" value="b">
+							<label>B. A little bit</label>
+							<br>
+							<input type="radio" name="1" value="c">
+							<label>C. Moderate experience</label>
+							<br>
+							<input type="radio" name="1" value="d">
+							<label>D. Experienced</label>
+							<br>
+							<input type="radio" name="1" value="e">
+							<label>E. Very experienced </label>
+							<br>
+
+							<br>
+							<p>How active are you?</p>
+							<input type="radio" name="1" value="a">
+							<label> A. Not very active</label>
+							<br>
+							<input type="radio" name="1" value="b">
+							<label>B. Moderately active</label>
+							<br>
+							<input type="radio" name="1" value="c">
+							<label>C. Active</label>
+							<br>
+							<input type="radio" name="1" value="d">
+							<label>D. Very active</label>
+							<br>
+							<input type="radio" name="1" value="e">
+							<label>E. Extremely active </label>
+							<br>
+
+							<br>
+							<p>Finish the sentence: I consider myself to be...</p>
+							<input type="radio" name="1" value="a">
+							<label> A. Playful and affectionate</label>
+							<br>
+							<input type="radio" name="1" value="b">
+							<label>B. Competitive</label>
+							<br>
+							<input type="radio" name="1" value="c">
+							<label>C. Active</label>
+							<br>
+							<input type="radio" name="1" value="d">
+							<label>D. Hardworking</label>
+							<br>
+							<input type="radio" name="1" value="e">
+							<label>E. Loyal </label>
+							<br>
+
+							<br>
+							<p>Finish the sentence: my ideal day out is...</p>
+							<input type="radio" name="1" value="a">
+							<label> A. Going shopping</label>
+							<br>
+							<input type="radio" name="1" value="b">
+							<label>B. Forest walks</label>
+							<br>
+							<input type="radio" name="1" value="c">
+							<label>C. The beach</label>
+							<br>
+							<input type="radio" name="1" value="d">
+							<label>D. Work! Your job is your hobby</label>
+							<br>
+							<input type="radio" name="1" value="e">
+							<label>E. Trip to the farm </label>
+							<br>
+
+							<br>
+							<input type="submit" onclick="">
+
+						</form>
+						<p> It's important to keep in mind that your matches are just general suggestions and individual dogs within a breed can have different personalities and needs. It's important to get to know the specific dog before agreeing to dog sit for them regularly.</p>
+					</div>
+				<div id="OwnerTab" hidden>
+					<h2>Owner - Dog Details</h2>
+					<form>
+						<input type="text" name="dogName" placeholder="Enter your dogs name">
+						<br><br>
+						<label>Dog Type </label>
+						<select name="dogTypes" id="dropDown">
+							<option value="toyDog">Toy Dog</option>
+							<option value="terrierDog">Terrier Dog</option>
+							<option value="sportingDog">Sporting Dog</option>
+							<option value="workingDog">Working Dog</option>
+							<option value="herdingDog">Herding Dog</option>
+						</select>
+						<br><br>
+						<label>Give a description of your furry friend</label>
+						<br>
+						<textarea rows="5" cols="33"></textarea>
+						<br><br>
+						<label>Upload pictures of your dog</label>
+						<br>
+						<input type="file" id="profilePictures" name="profilePictures" multiple accept="image/png, image/jpg, image/jpeg" onchange="showImages()">
+						<br>
+						<div id="imagePreviewContainer">
+						</div>
+						<br>
+						<input type="submit" onclick="">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

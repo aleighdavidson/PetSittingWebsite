@@ -1,21 +1,28 @@
-	<!-- this is the login page divs. it will display inbetween header and footer -->
-	<div class="loginContainer">
-		<div id="loginHeading">
-			<div>
-				<img src="static/images/logo 1.png" alt="Logo"/>
-				<p> Are you new here? </p>
-				<input class ="buttonCustom" type="reset" value="Create an Account">
+{% extends "layout.html" %}
+{% block body_content %}
+	<div class="gridContainer">
+			<div class="logoContainer">
+				<img id="waveRotated" src="/static/images/waveRotated.svg">
+				<div id="fetchContainer">
+					<img src="/static/images/logo 2.png" alt=""> <br>
+					<p> Creating Pawsitive Connections </p>
+					<img src="/static/images/dog.png">
+				</div>
+
+			</div>
+			<div class="loginContainer">
+				<div id="loginHeading">
+					<h1> Login </h1>
+					<p>Enter your details to get signed in, if you dont have an account <a href=createAccount>click here to create one!</a></p>
+				</div>
+				<div id="loginInput">
+					<form action="" method="post">
+						<input type="email" name="emailInput" id="emailInput" placeholder="Enter Email">
+						<input type="password" name="passwordInput" id="passwordInput" placeholder="Password">
+						<input type="submit" name="loginInput" id="loginInput" value="Sign in">
+					</form>
+				</div>
 			</div>
 		</div>
-		<div id="loginInput">
-			<h3> Login Account </h3>
-			<p class="error"> {{error}} </p>
-			<form method="post">
-				<label class="login"> Email Address: </label><br>
-				<input type="email" id="emailInput" name="emailInput"><br>
-				<label class="login"> Password: </label><br>
-				<input type="password" id="passwordInput" name="passwordInput"><br>
-				<input class ="buttonCustom" type="submit" value="Submit" >
-			</form>
-		</div>
 	</div>
+{% endblock %}
