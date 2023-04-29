@@ -1,5 +1,6 @@
 from application.models.user import User
 from application.models.dog import Dog
+from application.models.dog_photos import DogPhoto
 from application.models.dog_type import DogType
 from application.models.sitter_type import SitterType
 from application import db
@@ -51,6 +52,10 @@ def match_dog(type_id):
     
 def get_dog_profile(id):
     return db.session.query(Dog).filter_by(id=id).first()
+
+
+def get_dog_photo(dog_id):
+    return db.session.query(DogPhoto).filter_by(dog_id=dog_id).first()
 
 
 # TESTING ############
