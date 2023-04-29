@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<div class='heroGridContainer' id="editBackground">
-    <div>
+<div class='editGridContainer'>
+    <div id="heroColorBackground"></div>
+    <div class="editContent">
         <img src="/static/images/logo 2.png" alt="Logo"/>
-    </div>
-    <div class="heroContent">
+    <div class="editContent">
         <h2>Edit Your Details</h2>
         <form method='POST' action=''>
             <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
@@ -56,11 +56,12 @@
 <!--            {% endif %}-->
             <div class="row editDetailsRow">
                     <div class = "mb-3">
-                        <div class="col-md-2">{{ form.submit(class_="customLinkStyling") }}</div>
+                        <div class="col-md-2">{{ form.submit(class_="customLinkStyling", id="editButton") }}</div>
                     </div>
             </div>
             <div class="row editDetailsRow">
-                <button class="customLinkStyling", onclick="redirectCancel({{user.id}})">Cancel</button>
+                <a class="customLinkStyling" id="editButton" onclick="redirectCancel({{user.id}})">Cancel</a>
+<!--                <button id="editButton", class="customLinkStyling", onclick="redirectCancel({{user.id}})">Cancel</button>-->
             </div>
                 {{ message }}
         </form>
