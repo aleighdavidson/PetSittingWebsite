@@ -181,4 +181,33 @@ body {
 		border-radius: 0;
 	}
   }
-  
+/* Dog Profile Template */
+.dog_info {
+text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dog_info p {
+display: inline-block;
+margin-right: 60px;
+text-align: center;
+}
+
+.dog_photo img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  }
+
+.dog_photo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh
+}
+
+
+

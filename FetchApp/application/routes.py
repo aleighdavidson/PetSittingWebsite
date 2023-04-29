@@ -127,12 +127,14 @@ def matches(type_id):
     dog = service.match_dog(type_id)
     return render_template('matches.html', dog=dog)
 
+
 # route display dog profile
 @app.route('/dog_profile/<id>', methods=['GET'])
 def show_dog_profile(id):
     error = ""
     dog = service.get_dog_profile(id)
-    return render_template('dog_profile.html', dog=dog, message=error)
+    photo = service.get_dog_photo(id)
+    return render_template('dog_profile.html', dog=dog, photo=photo, message=error)
 
 
 # TESTING ################
