@@ -92,6 +92,16 @@ body {
 	grid-row: 1 / 2;
 }
 
+.userTable{
+    border-spacing: 30px;
+    max-width: 900px;
+}
+
+.userTableColumn{
+    width: 150px;
+    text-align: left;
+}
+
 .imgPreview {
   border: 1px solid #ddd;
   border-radius: 4px;

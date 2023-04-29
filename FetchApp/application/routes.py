@@ -61,15 +61,16 @@ def success(id):
 # ROUTE display Account Details
 @app.route('/account/<id>', methods=['GET', 'POST', 'DELETE'])
 def account(id):
-    error = ""
+    error=''
     user = service.get_account_details(id)
+    if user is None:
+        error = 'User does not exist.'
     delete_form = DeleteUserForm()
     if request.method == 'POST':
         service.delete_user(id)
         flash('Account Deleted')
         return redirect(url_for('try_login'))
     return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details', message=error)
-
 
 @app.route('/edituser/<id>', methods=['GET', 'POST'])
 def edit_user(id):
