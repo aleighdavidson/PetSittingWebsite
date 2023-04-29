@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{pageTitle}} </title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
     <script src="{{url_for('static', filename='javascript_functions.js') }}"></script>
@@ -14,10 +14,55 @@
 {% block body_content %}
 <h1>{{ title }}</h1>
 {% endblock %}
-<hr> <!-- left the horizontal line in to demarcate the footer, but may remove once footter styled -->
 {% block footer_content %}
-<div>
-    Footer stuff here, copywrite, links, etc. <!-- Alex to work on this! -->
+<div class="footerContainer">
+    <div class="footerMain">
+        <h2>Help</h2>
+         <ul class="ulFooter">
+            <li class="liFooter"><a id="footerLink" href="">Help</a></li>
+             <li class="liFooter"><a id="footerLink" href="">More Help</a></li>
+             <li class="liFooter"><a id="footerLink" href="">And more Help</a></li>
+             <li class="liFooter"><a id="footerLink" href="">And more Help</a></li>
+        </ul>
+    </div>
+    <div class="footerMain">
+        <h2>Learn More</h2>
+        <ul class="ulFooter">
+            <li class="liFooter"><a id="footerLink" href="">How does Fetch work?</a></li>
+            <li class="liFooter"><a id="footerLink" href="">Testimonials</a></li>
+            <li class="liFooter"><a id="footerLink" href="">Dog Types</a></li>
+            <li class="liFooter"><a id="footerLink" href="">Dog Walking</a></li>
+            <li class="liFooter"><a id="footerLink" href="">Dog Sitting</a></li>
+            <li class="liFooter"><a id="footerLink" href="">Dog Boarding</a></li>
+        </ul>
+    </div>
+    <div class="footerMain">
+        <h2>About Us</h2>
+        <ul class="ulFooter">
+            <li class="liFooter"><a id="footerLink" href="">Our Story</a></li>
+             <li class="liFooter"><a id="footerLink" href="">Meet the Team</a></li>
+             <li class="liFooter"><a id="footerLink" href="">News</a></li>
+        </ul>
+    </div>
+    <div class="footerMain">
+        <h2>Find Us On</h2>
+        <ul class="ulFooter">
+            <li class="liFooter"><a id="footerLink" href="">Instagram</a></li>
+             <li class="liFooter"><a id="footerLink" href="">Pintrest</a></li>
+             <li class="liFooter"><a id="footerLink" href="">Twitter</a></li>
+             <li class="liFooter"><a id="footerLink" href="">Facebook</a></li>
+        </ul>
+    </div>
+    <div id="footerLogo">
+        <img src="/static/images/logo 2.png" alt="Logo" width="50%"/>
+    </div>
+</div>
+<div class="footerContainer">
+     <div class="footerFooter">
+        <p>&copy 2023 Fetch Inc.</p>
+         <a id="footerLink" href="">Terms and Conditions</a>
+         <a id="footerLink" href="">Privacy Policy</a>
+    </div>
 </div>
 {% endblock %}
 </body>

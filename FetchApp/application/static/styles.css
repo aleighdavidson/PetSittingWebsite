@@ -181,6 +181,55 @@ body {
 		border-radius: 0;
 	}
   }
+
+/* Footer */
+.footerContainer {
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px 10px;
+	justify-content: space-evenly;
+    background-color: #74A57F;
+ }
+
+.footerMain {
+    align-self: start;
+}
+
+.footerFooter {
+    place-self: center;
+}
+
+#footerLink:link {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.ulFooter{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.liFooter{
+    margin: 10px;
+}
+
+#footerLogo {
+    place-self: center;
+}
+=======
 /* Dog Profile Template */
 .dog_info {
 text-align: center;
@@ -208,6 +257,4 @@ text-align: center;
   align-items: center;
   height: 60vh
 }
-
-
 
