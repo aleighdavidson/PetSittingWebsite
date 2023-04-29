@@ -125,7 +125,8 @@ def edit_dog(id):
 def matches(type_id):
     # retrieve all dogs of the specified dog type
     dog = service.match_dog(type_id)
-    return render_template('matches.html', dog=dog)
+    user = service.get_account_details(type_id)
+    return render_template('matches.html', dog=dog, user=user)
 
 
 # route display dog profile
