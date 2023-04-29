@@ -16,11 +16,6 @@ def get_account_details(id):
     return user
 
 
-def get_dog(id):
-    dog = db.session.query(Dog).filter_by(id=id).first()
-    return dog
-
-
 def save_account_changes(user):
     db.session.add(user)
     db.session.commit()
@@ -58,14 +53,3 @@ def get_dog_photo(dog_id):
     return db.session.query(DogPhoto).filter_by(dog_id=dog_id).first()
 
 
-# TESTING ############
-# def get_all_users():
-#     return db.session.query(User).all()
-#
-#
-# def get_all_dogs():
-#     return db.session.query(Dog).all()
-#
-#
-# def get_all_sitter_types():
-#     return db.session.query(SitterType).all()

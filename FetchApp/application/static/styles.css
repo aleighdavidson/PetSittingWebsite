@@ -76,6 +76,22 @@ body {
 
 /* Account Template */
 
+.editGridContainer {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	width: 100vw;
+	row-gap: 0px;
+}
+
+.editGridContainer > .editContent {
+	justify-self: start;
+	padding: 20px;
+	padding-left: 50px;
+	max-width: 900px;
+	grid-column:1;
+	grid-row: 1 / 2;
+}
+
 .imgPreview {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -86,14 +102,34 @@ body {
 #buttonWarning {
 	background-color: red;
 	color: white;
+	font-family: var(--font);
+	font-size: 16px;
+}
+
+#buttonWarning:hover {
+    background-color: white;
+	color: red;
+}
+
+#editButton {
+    background-color: #74A57F;
+    color: white;
+    font-family: var(--font);
+    font-size: 16px;
+}
+
+#editButton:hover{
+	background-color: #077187;
 }
 
 .flashMessage {
-    padding: 15px;
+    padding-top: 30px;
+    place-self: center;
 }
 
 .editDetailsRow {
     padding: 10px;
+    font-size: 16px;
 }
 
 .form-control {
@@ -227,7 +263,11 @@ body {
 }
 
 #footerLogo {
-    place-self: center;
+    /*place-self: center end;
+    padding-left: 50px;
+    grid-column: 5; */
+    width: 148.5px;
+    height: 62px;
 }
 =======
 /* Dog Profile Template */
