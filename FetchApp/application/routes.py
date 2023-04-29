@@ -61,15 +61,16 @@ def success(id):
 # ROUTE display Account Details
 @app.route('/account/<id>', methods=['GET', 'POST', 'DELETE'])
 def account(id):
-    error = ""
+    error=''
     user = service.get_account_details(id)
+    if user is None:
+        error = 'User does not exist.'
     delete_form = DeleteUserForm()
     if request.method == 'POST':
         service.delete_user(id)
         flash('Account Deleted')
         return redirect(url_for('try_login'))
     return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details', message=error)
-
 
 @app.route('/edituser/<id>', methods=['GET', 'POST'])
 def edit_user(id):
@@ -100,7 +101,7 @@ def edit_user(id):
 @app.route('/editdog/<id>', methods=['GET', 'POST', 'DELETE'])
 def edit_dog(id):
     error = ""
-    current_dog = service.get_dog(id)
+    current_dog = service.get_dog_profile(id)
     form = DogForm(obj=current_dog)
     form.dog_type_list.data = current_dog.dog_type
     delete_form = DeleteUserForm()
@@ -138,34 +139,3 @@ def show_dog_profile(id):
     return render_template('dog_profile.html', dog=dog, photo=photo, message=error)
 
 
-# TESTING ################
-
-# @app.route('/users', methods=['GET'])
-# def show_users():
-#     error = ""
-#     users = service.get_all_users()
-#     print("I'm working")
-#     if len(users) == 0:
-#         error = "There are no users to display"
-#     return render_template('usersTest.html', users=users, message=error)
-#
-#
-# @app.route('/sitters', methods=['GET'])
-# def show_sitters():
-#     error = ""
-#     sitters = service.get_all_sitter_types()
-#     print("I'm working")
-#     if len(sitters) == 0:
-#         error = "There are no users to display"
-#     return render_template('sitterTypeTest.html', users=sitters, message=error)
-#
-#
-# @app.route('/users/dog', methods=['GET'])
-# def show_users_dogs():
-#     error = ""
-#     users = service.get_all_users()
-#     dogs = service.get_all_dogs()
-#     my_dict = {}
-#     for dog in dogs:
-#         my_dict[dog.user.id] = dog.dog_name
-#     return render_template('usersTest.html', users=users, dogs=dogs, my_dict=my_dict, message=error)

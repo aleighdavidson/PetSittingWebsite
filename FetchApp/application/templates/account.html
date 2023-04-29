@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body_content %}
+<<<<<<< HEAD
 
 <nav class="navbar navbar-expand-custom navbar-mainbg">
   <a class="navbar-brand navbar-logo" href="http://127.0.0.1:5000/">Home</a>
@@ -65,24 +66,108 @@
                     <p>Type: {{dog.dog_type.type_name}}</p>
                     {% for photo in dog.dog_photo %}
                       <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
+=======
+<div class="editGridContainer">
+    <div id="heroColorBackground"></div>
+<!--    <img id="heroBackground" src="/static/images/wave.svg">-->
+    <div class="editContent">
+        <img src="/static/images/logo 2.png" alt="Logo"/>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="flashMessage">{{ message }}</div>
+>>>>>>> 1f60d682267d2a340c6d518b4074d3b7e560455a
                     {% endfor %}
-                </div>
+                {% endif %}
+            {% endwith %}
+        <div class="flashMessage">{{ message }}</div>
+            <div class='editContent'>
+                <h1> About You </h1>
+                <a class="customLinkStyling" id="editButton" href="/edituser/{{user.id}}">Edit Your Details</a>
+                <table class="userTable">
+                    <tr>
+                        <th class="userTableColumn">First Name:</th>
+                        <td>{{user.first_name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Last Name:</th>
+                        <td>{{user.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">City:</th>
+                        <td>{{user.city}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Phone Number:</th>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Email Address: </th>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Bio:</th>
+                        <td>{{user.bio}}</td>
+                    </tr>
+                </table>
+<!--                <p>First Name: {{user.first_name}}</p>-->
+<!--                <p>Last Name: {{user.last_name}}</p>-->
+<!--                <p>City: {{user.city}}</p>-->
+<!--                <p>Phone Number: {{user.phone}}</p>-->
+<!--                <p>Email Address: {{user.email}}</p>-->
+<!--                <p>Bio: {{user.bio}}</p>-->
             </div>
+    </div>
+</div>
+<div class="editGridContainer">
+    <div class="editContent">
+    {% if user.user_type == "Owner" %}
+        <h1> About Your Dogs </h1>
+            {% for dog in user.dog %}
+        <div class="editContent">
+            <a class="customLinkStyling" id="editButton" href="/editdog/{{dog.id}}">Edit Dog</a>
+            <table class="userTable">
+                <tr>
+                    <th class="userTableColumn">Name:</th>
+                    <td>{{dog.dog_name}}</td>
+                </tr>
+                <tr>
+                    <th class="userTableColumn">Age:</th>
+                    <td>{{dog.dog_age}}</td>
+                </tr>
+                <tr>
+                    <th class="userTableColumn">Type:</th>
+                    <td>{{dog.dog_type.type_name}}</td>
+                </tr>
+                <tr>
+                    <th class="userTableColumn">Description:</th>
+                    <td>{{dog.description}}</td>
+                </tr>
+                <tr>
+                    <th class="userTableColumn"></th>
+                    {% for photo in dog.dog_photo %}
+                    <td><img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}"></td>
+                    {% endfor %}
+                </tr>
+            </table>
+<!--            <p>Name: {{dog.dog_name}}</p>-->
+<!--            <p>Age: {{dog.dog_age}} </p>-->
+<!--            <p>Description: {{dog.description}}</p>-->
+<!--            <p>Type: {{dog.dog_type.type_name}}</p>-->
+<!--            {% for photo in dog.dog_photo %}-->
+<!--              <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">-->
+<!--            {% endfor %}-->
         </div>
-</div>
-  {% endfor %}
-{% endif %}
-  <br>
-  {{ message }}
-</div>
-<div class="heroGridContainer">
-    <div class="heroContent">
+            {% endfor %}
+    {% endif %}
         <div>
              <form method='POST' action=''>
                  {{ delete_form.csrf_token }}
-                <button type="submit" id="buttonWarning" class="customLinkStyling">Delete Account</button>
+                <button type="submit" class="customLinkStyling" id="buttonWarning"">Delete Account</button>
              </form>
         </div>
     </div>
 </div>
+
+  <br>
 {% endblock %}

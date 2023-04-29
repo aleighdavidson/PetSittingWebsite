@@ -1,17 +1,27 @@
-function redirectUser(id){
-window.location.href = 'http://127.0.0.1:5000/edituser/'+ id;
-}
-
-function redirectDog(id){
-window.location.href ='http://127.0.0.1:5000/editdog/'+ id;
-}
-
 function redirectCancel(id){
-window.location.href ='http://127.0.0.1:5000/account/'+ id;
+window.location.href ='/account/'+ id;
 }
+// not used right now
+//function redirectUser(id){
+//window.location.href = '/edituser/'+ id;
+//}
+//
+//function redirectDog(id){
+//window.location.href ='/editdog/'+ id;
+//}
 
-function removeDog(id){
-service.remove_dog(id)}
+// not working right now
+//function confirmDelete(id){
+//    if (window.confirm("Are you sure?") == true){
+//        service.delete_user(id);
+//        }
+//    else{
+//        window.location.href ='/account/'+ id;
+//        }
+//}
+//function removeDog(id){
+//    service.remove_dog(id)
+//}
 
 // Switches buttons between sitter and owner (finish Account Page) //
 function switchTab(value) {
