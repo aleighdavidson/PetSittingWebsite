@@ -7,10 +7,11 @@
 		<img id="heroBackground" src="/static/images/wave.svg">
 		<div class="heroContent">
 			<img src="/static/images/logo 2.png" alt="Logo"/>
-			<div>
-<div>
-    <h1 class="dog_name">{{dog.dog_name}}</h1>
 </div>
+</div>
+    <div id="heroGridContainer">
+        <div id="heroContent">
+    <h1 class="dog_name">{{dog.dog_name}}</h1>
                 <div class="dog_photo_container">
                 <div class="dog_photo">
 <img src="{{ url_for('static', filename ='images/'+ photo.photo) }}" alt="{{dog.dog_name}}">
@@ -34,7 +35,9 @@
         Email Address: {{dog.user.email}}
 
 </p>
-</div>
+    </div>
+        </div>
 
+</div>
 {% endblock %}
 
