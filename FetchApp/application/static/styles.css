@@ -230,14 +230,29 @@ body {
     place-self: center;
 }
 =======
+
+
 /* Dog Profile Template */
-.dog_info {
+
+.dog_name {
 text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+.heroContent {
+text-align: center;
+}
+
+.description p {
+text-align: center;
+height: 10vh;
+}
+
+.dog_info {
+text-align: center;
+display: flex;
+justify-content: center;
+
+}
 .dog_info p {
 display: inline-block;
 margin-right: 60px;
@@ -255,6 +270,42 @@ text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh
+  height: 50vh
 }
 
+.contact_info_container {
+text-align: center;
+height: 20vh;
+}
+
+.dog_info_container {
+  height: 10vh
+}
+
+
+.list_container {
+display: flex;
+  justify-content: center;
+}
+
+.info_list {
+  width: 900px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-right: 20px;
+  width: 100px;
+  text-align: center;
+}

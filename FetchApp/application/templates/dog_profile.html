@@ -1,42 +1,50 @@
 {% extends "layout.html" %}
 {% block body_content %}
-{% set pageTitle = "Dog profile" %}
 
 <div class="heroGridContainer">
 		<div id="heroColorBackground"></div>
 		<img id="heroBackground" src="/static/images/wave.svg">
 		<div class="heroContent">
-			<img src="/static/images/logo 2.png" alt="Logo"/>
+            <img src="/static/images/logo 2.png" alt="Logo"/>
 </div>
 </div>
     <div id="heroGridContainer">
-        <div id="heroContent">
-    <h1 class="dog_name">{{dog.dog_name}}</h1>
+        <div class="heroContent">
+    <h1>{{dog.dog_name}}</h1>
                 <div class="dog_photo_container">
                 <div class="dog_photo">
 <img src="{{ url_for('static', filename ='images/'+ photo.photo) }}" alt="{{dog.dog_name}}">
                 </div>
                 </div>
+            </div>
+</div>
 
+<div class="dog_info_container">
 <div class="dog_info">
     <p>Type of dog: {{dog.dog_type.type_name}}</p>
     <p>Location: {{dog.user.city}}</p>
     <p>Owner: {{dog.user.first_name}}</p>
 </div>
+    </div>
+    <div class="description">
+<p>{{dog.description}}</p>
+    </div>
 
-<p class="description">{{dog.description}}</p>
 
-<div class="contact_info">
+<div class="contact_info_container">
     <h2>Contact my human</h2>
-
-<p>
+    <div class="list_container">
+<div class="info_list">
+<ul>
         Name: {{dog.user.first_name}} {{dog.user.last_name}} <br>
         Phone Number: {{dog.user.phone}} <br>
         Email Address: {{dog.user.email}}
 
-</p>
+</ul>
+    </div>
     </div>
         </div>
+</div>
 
 </div>
 {% endblock %}
