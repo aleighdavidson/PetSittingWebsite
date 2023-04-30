@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout2.html" %}
 {% block body_content %}
 <div class="gridContainer">
 		<div class="logoContainer">
@@ -15,31 +15,34 @@
 				<p>Sign up today and let us FETCH you matches! If you already have an account  <a href=login>login here!</a></p>
 			</div>
 			<div id="formSection">
-				<form>
+				<div class="error">
+					{{ error }}
+				</div>
+				<form action="" method="post">
 					<h2> About You </h2>
-					<input type="email" id="emailInput" placeholder="Enter Email" name="emailInput">
+					<input type="email" placeholder="Enter Email" name="emailInput">
 					<br>
 					<br>
-					<input type="password" id="passwordInput" placeholder="Password" name="passwordInput">
+					<input type="password" placeholder="Password" name="passwordInput">
 					<br>
 					<br>
-					<input type="text" id="fnameInput" placeholder="First Name" name="fnameInput">
+					<input type="text" placeholder="First Name" name="fnameInput">
 					<br>
 					<br>
-					<input type="text" id="lnameInput" placeholder="Surname" name="lnameInput">
+					<input type="text" placeholder="Surname" name="lnameInput">
 					<br>
 					<br>
-					<input type="text" id="cityInput" placeholder="City" name="cityInput">
+					<input type="text" placeholder="City" name="cityInput">
 					<br>
 					<br>
-					<input type="text" id="phoneInput" placeholder="Phone No." name="phoneInput">
+					<input type="text" placeholder="Phone No." name="phoneInput">
 					<br>
 					<br>
 					<label class="signup"> Tell others a bit about yourself:</label><br>
-					<textarea rows="5" cols="33"></textarea>
+					<textarea rows="5" cols="33" name="bioInput"></textarea>
 					<br>
 					<br>
-					<input type="submit" onclick="">
+					<input type="submit" name="loginInput" id="loginInput">
 				</form>
 			</div>
 		</div>

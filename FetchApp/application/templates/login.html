@@ -1,4 +1,12 @@
-{% extends "layout.html" %}
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+{% extends "layout2.html" %}
 {% block body_content %}
 	<div class="gridContainer">
 			<div class="logoContainer">
@@ -12,16 +20,12 @@
 			<div class="loginContainer">
 				<div id="loginHeading">
 					<h1> Login </h1>
-					{% with messages = get_flashed_messages() %}
-						{% if messages %}
-							{% for message in messages %}
-								<div class="flashMessage">{{ message }}</div>
-							{% endfor %}
-						{% endif %}
-					{% endwith %}
 					<p>Enter your details to get signed in, if you dont have an account <a href=createAccount>click here to create one!</a></p>
 				</div>
 				<div id="loginInput">
+					<div class="error">
+					{{ error }}
+					</div>
 					<form action="" method="post">
 						<input type="email" name="emailInput" id="emailInput" placeholder="Enter Email">
 						<input type="password" name="passwordInput" id="passwordInput" placeholder="Password">

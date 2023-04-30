@@ -1,0 +1,261 @@
+/* This is for all templates */
+
+:root{
+    --loginBackground: #9BD2DE;
+    --font:courier;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: var(--font);
+	font-size: 16px;
+}
+
+.gridContainer {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 100vw;
+	row-gap: 0px;
+}
+
+.logoContainer {
+	display:grid;
+	grid-template-rows: auto auto;
+	grid-row: 1;
+	grid-column: 1;
+	justify-content:center;
+	align-self:center;
+	align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	height: 100vh;
+	overflow:hidden;
+}
+
+#waveRotated{
+	height: 110vh;
+	grid-column:2;
+	grid-row:1 / 2;
+	justify-self: right;
+}
+
+#fetchContainer {
+	height: 100%;
+	grid-column:1;
+	grid-row: 1;
+	background-color:#9BD2DE;
+}
+
+
+
+/* Login Template */
+.loginContainer {
+	display:flex;
+	grid-row: 1;
+	grid-column: 2;
+	justify-content:center;
+	align-self:center;
+	align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	padding: 1rem;
+}
+
+#loginHeading {
+    text-align: center;
+    font-weight: 500;
+}
+
+#loginHeading > p{
+	padding: 30px 0;
+}
+
+.error {
+    color:red;
+}
+
+/* Account Template */
+
+.imgPreview {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  }
+
+#buttonWarning {
+	background-color: red;
+	color: white;
+}
+
+.flashMessage {
+    padding: 15px;
+}
+
+.editDetailsRow {
+    padding: 10px;
+}
+
+.form-control {
+    font: courier;
+}
+
+#largerFont{
+    font: courier;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#editBackground{
+    background-color: #9BD2DE;
+}
+
+/* media queries */
+
+@media (max-width: 900px) {
+	#heroDog {
+		width: 200px;
+	}
+
+	#heroParagraph {
+		transform: translateY(0);
+		margin-bottom: 30px;
+	}
+	#fetchContainer{
+		display:none;
+	}
+
+	#gridContainer {
+		width:294px;
+		overflow: hidden;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+}
+
+@media (max-width: 600px) {
+	.gridContainer {
+		width: 100%;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+	#fetchContainer{
+		display:none;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	#heroColorBackground {
+		grid-row: 1 / 2;
+	}
+
+	#heroBackground {
+		display: none;
+	}
+
+	#heroDog {
+		display: none;
+	}
+
+	#dogTypes {
+		padding: 0;
+	  	flex-direction: column;
+	}
+
+	.textbox {
+		width:100%;
+		border-radius: 0;
+	}
+  }
+
+/* Footer */
+.footerContainer {
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px 10px;
+	justify-content: space-evenly;
+    background-color: #74A57F;
+ }
+
+.footerMain {
+    align-self: start;
+}
+
+.footerFooter {
+    place-self: center;
+}
+
+#footerLink:link {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.ulFooter{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.liFooter{
+    margin: 10px;
+}
+
+#footerLogo {
+    place-self: center;
+}
+=======
+/* Dog Profile Template */
+.dog_info {
+text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dog_info p {
+display: inline-block;
+margin-right: 60px;
+text-align: center;
+}
+
+.dog_photo img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  }
+
+.dog_photo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh
+}
+

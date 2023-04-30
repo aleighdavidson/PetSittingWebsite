@@ -1,6 +1,7 @@
 # import Flask class from the flask module
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
 
 
 user = 'fetch.member'
@@ -19,6 +20,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{0}:{1}@{2}:{3}/{4}'.fo
 # getenv('MYSQL_HOST') + '/' + getenv('MYSQL_DB'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+app.config['UPLOAD_FOLDER'] = 'application/static/images'
 
 
 # link our app to the persistence layer
