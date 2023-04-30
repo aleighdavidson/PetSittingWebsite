@@ -1,16 +1,22 @@
+:root{
+    --font:courier;
+}
+
 body {
   overflow: hidden;
-  font-family: "Roboto", serif;
+  font-family: var(--font);
   background: linear-gradient(135deg, #F7EEE2, #74a57f);
 }
 
 h1 {
   display: flex;
   justify-content: center;
-  font-family: "Roboto", serif;
-  font-size: 60px;
+  font-size: 50px;
   color: rgb(255, 255, 255);
-  padding-bottom: 100px;
+  margin-top: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-weight: 600;
 }
 
 .carousel {
@@ -18,7 +24,6 @@ h1 {
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  margin-top: auto;
 }
 
 .carousel-item {
@@ -30,7 +35,7 @@ h1 {
   --height: clamp(300px, 40vw, 600px);
   --x: calc(var(--active) * 140%);
   --y: calc(var(--active) * 2%);
-  --rot: calc(var(--active) * 60deg);
+  --rot: calc(var(--active) * 50deg);
   /* --opacity: calc(var(--zIndex) / var(--items) * 3 - 2); */
   overflow: hidden;
   position: absolute;
@@ -39,7 +44,7 @@ h1 {
   height: var(--height);
   margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
   border-radius: 10px;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -85,20 +90,21 @@ h1 {
   color: #ffffff;
   justify-content: center;
   bottom: 160px;
-  left: 140px;
+  left: 110px;
   transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
   font-size: clamp(30px, 3vw, 40px);
+  font-weight: 500;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 .carousel-item .description {
   position: absolute;
   z-index: 1;
   color: #fff;
-  bottom: 1px;
-  left: 10px;
-  justify-content: center;
+  bottom: 40px;
+  left: 15px;
   transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
-  font-size: 20px;
+  font-size: 15px;
+  overflow: auto;
 }
 .carousel-item img {
   width: 80%;
