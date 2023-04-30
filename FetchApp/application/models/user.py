@@ -17,6 +17,7 @@ class User(db.Model):
     email: str
     password: str
     user_type: str
+    sitter_type: int
     bio: str
 
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
@@ -27,7 +28,9 @@ class User(db.Model):
     email: Mapped[str] = mapped_column(db.String)
     password: Mapped[str] = mapped_column(db.String)
     user_type: Mapped[str] = mapped_column(db.String)
+    sitter_type_id: Mapped[str] = mapped_column(db.Integer, db.ForeignKey('sitter_type.id'))
     bio: Mapped[str] = mapped_column(db.String)
 
     dog: Mapped[List["Dog"]] = relationship("Dog", back_populates='user', cascade="all, delete-orphan")
-    sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='user')
+    # sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='user')
+    sitter_type: Mapped[List["SitterType"]] = relationship("SitterType", back_populates="user")

@@ -15,5 +15,6 @@ class SitterType(db.Model):
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     sitter_type: Mapped[str] = mapped_column(db.String)
 
-    sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='sitter_type')
+    # sitter_type_link: Mapped[List["SitterTypeLink"]] = relationship("SitterTypeLink", back_populates='sitter_type')
     # sitter_dog_link: Mapped[List["SitterDogLink"]] = relationship("SitterDogLink", back_populates='sitter_type')
+    user: Mapped[List["User"]] = relationship("User", back_populates='sitter_type')

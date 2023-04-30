@@ -6,8 +6,8 @@ from application.models.dog import Dog
 from application.models.dog_photos import DogPhoto
 from application.models.dog_type import DogType
 from application.models.sitter_type import SitterType
-from application.models.sitter_type_link import SitterTypeLink
-from application.models.sitter_dog_link import SitterDogLink
+# from application.models.sitter_type_link import SitterTypeLink
+# from application.models.sitter_dog_link import SitterDogLink
 from application.forms.UserForm import UserForm
 from application.forms.DogForm import DogForm
 from application.forms.DeleteUserForm import DeleteUserForm
@@ -77,10 +77,6 @@ def edit_user(id):
     error = ""
     current_user = service.get_account_details(id)
     form = UserForm(obj=current_user)
-    if current_user.user_type == "Sitter":
-        for i in current_user.sitter_type_link:
-            current_sitter_type = i.sitter_type
-        form.sitter_type_list.data = current_sitter_type
 
     if request.method == 'POST':
         form = UserForm(request.form)
