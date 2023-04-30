@@ -123,7 +123,7 @@ def matches(type_id):
     # retrieve all dogs of the specified dog type
     dog = service.match_dog(type_id)
     user = service.get_account_details(type_id)
-    return render_template('matches.html', dog=dog, user=user)
+    return render_template('matches.html', dog=dog, user=user, pageTitle='Matches')
 
 
 # route display dog profile
@@ -132,6 +132,6 @@ def show_dog_profile(id):
     error = ""
     dog = service.get_dog_profile(id)
     photo = service.get_dog_photo(id)
-    return render_template('dog_profile.html', dog=dog, photo=photo, message=error)
+    return render_template('dog_profile.html', dog=dog, photo=photo, pageTitle=dog.dog_name, message=error)
 
 

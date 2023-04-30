@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
 
 <nav class="navbar navbar-expand-custom navbar-mainbg">
-  <a class="navbar-brand navbar-logo" href="http://127.0.0.1:5000/">Home</a>
+  <a class="navbar-brand navbar-logo" href="/">Home</a>
   <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
   </button>
@@ -17,56 +17,14 @@
         <a class="nav-link" href="javascript:void(0);" onclick="redirectUserAccount({{user.id}})"><i class="far fa-address-book"></i>Account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);" onclick="redirectUserMatches({{user.id}})"><i class="far fa-clone"></i>Matches</a>
+        <a class="nav-link" href="javascript:void(0);" onclick="redirectUserMatches({{user.sitter_type_id}})"><i class="far fa-clone"></i>Matches</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+        <a class="nav-link" href="javascript:void(0);" onclick="redirectHome()"><i class="fas fa-sign-out-alt"></i>Log Out</a>
       </li>
     </ul>
   </div>
 </nav>
-
-<div class="heroGridContainer">
-		<div id="heroColorBackground"></div>
-		<img id="heroBackground" src="/static/images/wave.svg">
-		<div class="heroContent">
-			<img src="/static/images/logo 2.png" alt="Logo"/>
-			<div>
-				<h1> About You </h1>
-                <div class='heroContent'>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            {{ message }}
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                </div>
-				<a class="customLinkStyling" href="/edituser/{{user.id}}">Edit Your Details</a>
-                <p>First Name: {{user.first_name}}</p>
-                <p>Last Name: {{user.last_name}}</p>
-                <p>City: {{user.city}}</p>
-                <p>Phone Number: {{user.phone}}</p>
-                <p>Email Address: {{user.email}}</p>
-                <p>Bio: {{user.bio}}</p>
-			</div>
-		</div>
-	</div>
-
-{% if user.user_type == "Owner" %}
-<div class="heroGridContainer">
-            <div class="heroContent">
-                <div>
-                    <h1> About Your Dogs </h1>
-                    {% for dog in user.dog %}
-                    <a class="customLinkStyling" href="/editdog/{{dog.id}}">Edit Dog</a>
-                    <p>Name: {{dog.dog_name}}</p>
-                    <p>Age: {{dog.dog_age}} </p>
-                    <p>Description: {{dog.description}}</p>
-                    <p>Type: {{dog.dog_type.type_name}}</p>
-                    {% for photo in dog.dog_photo %}
-                      <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">
-=======
 <div class="editGridContainer">
     <div id="heroColorBackground"></div>
 <!--    <img id="heroBackground" src="/static/images/wave.svg">-->
@@ -76,7 +34,6 @@
                 {% if messages %}
                     {% for message in messages %}
                         <div class="flashMessage">{{ message }}</div>
->>>>>>> 1f60d682267d2a340c6d518b4074d3b7e560455a
                     {% endfor %}
                 {% endif %}
             {% endwith %}
@@ -110,12 +67,6 @@
                         <td>{{user.bio}}</td>
                     </tr>
                 </table>
-<!--                <p>First Name: {{user.first_name}}</p>-->
-<!--                <p>Last Name: {{user.last_name}}</p>-->
-<!--                <p>City: {{user.city}}</p>-->
-<!--                <p>Phone Number: {{user.phone}}</p>-->
-<!--                <p>Email Address: {{user.email}}</p>-->
-<!--                <p>Bio: {{user.bio}}</p>-->
             </div>
     </div>
 </div>
@@ -150,13 +101,6 @@
                     {% endfor %}
                 </tr>
             </table>
-<!--            <p>Name: {{dog.dog_name}}</p>-->
-<!--            <p>Age: {{dog.dog_age}} </p>-->
-<!--            <p>Description: {{dog.description}}</p>-->
-<!--            <p>Type: {{dog.dog_type.type_name}}</p>-->
-<!--            {% for photo in dog.dog_photo %}-->
-<!--              <img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}">-->
-<!--            {% endfor %}-->
         </div>
             {% endfor %}
     {% endif %}

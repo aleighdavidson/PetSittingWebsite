@@ -79,8 +79,12 @@ jQuery(document).ready(function ($) {
 // });
 
 function redirectUserAccount(id){
-window.location.href = 'http://127.0.0.1:5000/account/'+ id;
+window.location.href = '/account/'+ id;
 }
 function redirectUserMatches(id){
-window.location.href = 'http://127.0.0.1:5000/matches/'+ id;
+window.location.href = '/matches/'+ id;
+}
+
+function redirectHome(){
+window.location.href = "/"
 }
