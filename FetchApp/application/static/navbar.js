@@ -79,12 +79,16 @@ jQuery(document).ready(function ($) {
 // });
 
 function redirectUserAccount(id){
-window.location.href = '/account'
+    window.location.href = '/account'
 }
 function redirectUserMatches(id){
-window.location.href = '/matches'
+    window.location.href = '/matches'
 }
 
 function redirectHome(){
-window.location.href = "/"
+    window.location.href = "/"
+}
+
+function logout(){
+    window.location.href = '/logout'
 }

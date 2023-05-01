@@ -56,6 +56,11 @@ def try_login():
     return render_template('login.html', error=error, pageTitle="Login Page")
 
 
+@app.route('/logout')  # remove session ID
+def logout():
+    session.pop("userID", None)
+    return redirect(url_for('catch_all'))
+
 # ROUTE to create account
 @app.route('/createAccount', methods=['GET', 'POST'])
 def createAccount():
