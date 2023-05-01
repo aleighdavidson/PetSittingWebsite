@@ -48,8 +48,7 @@ def try_login():
 
         # if user exists, then continue. Otherwise, the database didn't find a user, so its incorrect details...
         if user:
-            session["userID"] = user.id # Set a session variable. Name is userID and set it to the users ID.
-
+            session["userID"] = user.id  # Set a session variable. Name is userID and set it to the users ID.
 
             return redirect(url_for('matches'))
         # if unsuccessful, will return an error message along with the login page again
@@ -57,8 +56,7 @@ def try_login():
     return render_template('login.html', error=error, pageTitle="Login Page")
 
 
-
-#ROUTE to create account
+# ROUTE to create account
 @app.route('/createAccount', methods=['GET', 'POST'])
 def createAccount():
     error = ""
@@ -69,7 +67,7 @@ def createAccount():
         showError = False
         if request.form['emailInput'] == "":
             showError = True
-        elif request.form['passwordInput'] == "" :
+        elif request.form['passwordInput'] == "":
             showError = True
         elif request.form['fnameInput'] == "":
             showError = True
@@ -84,7 +82,7 @@ def createAccount():
 
         if showError:
             error = "Please fill in all details"
-        else: # If user has filled in all details
+        else:  # If user has filled in all details
 
             # Like before, encrypt the password. Then store in the database
             password = hashlib.sha256(
@@ -107,7 +105,8 @@ def createAccount():
 
     return render_template('createAccount.html', error=error, pageTitle="Create Account Page")
 
-#ROUTE for finish Account
+
+# ROUTE for finish Account
 @app.route('/finishAccount', methods=['GET', 'POST'])
 def finishAccount():
     if request.method == 'POST':
@@ -154,14 +153,13 @@ def finishAccount():
 
             return redirect(url_for('matches'))
 
-
     return render_template('finishAccount.html', pageTitle="Finish Account Page")
 
 
 # ROUTE display Account Details
 @app.route('/account', methods=['GET', 'POST', 'DELETE'])
 def account():
-    error=''
+    error = ''
     user = service.get_account_details(session["userID"])
     if user is None:
         error = 'User does not exist.'
@@ -170,7 +168,9 @@ def account():
         service.delete_user(session["userID"])
         flash('Account Deleted')
         return redirect(url_for('try_login'))
-    return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details', message=error)
+    return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details',
+                           message=error)
+
 
 @app.route('/edituser', methods=['GET', 'POST'])
 def edit_user():
@@ -224,6 +224,13 @@ def matches():
     user = service.get_account_details(session["userID"])
     if user.user_type == "Sitter":
         dog = service.match_dog(user.sitter_type_id)
+        # print(user)
+        # print(user.dog)
+    if user.user_type == "Owner":
+        # below is temporary so that owner match page has no error with missing dog=dog
+        dog = service.match_dog(user.sitter_type_id)
+        # print(user)
+        # print(user.dog)
     return render_template('matches.html', dog=dog, user=user, pageTitle='Matches')
 
 
@@ -234,5 +241,3 @@ def show_dog_profile(id):
     dog = service.get_dog_profile(id)
     photo = service.get_dog_photo(id)
     return render_template('dog_profile.html', dog=dog, photo=photo, pageTitle=dog.dog_name, message=error)
-
-
