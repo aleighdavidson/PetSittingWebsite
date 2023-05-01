@@ -10,15 +10,15 @@
                 <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
                 {{ form.csrf_token }}
                     <div class="row editDetailsRow">
-                        <div class = "mb-3">
-                            <div class="col-md-2" id="largerFont">{{ form.dog_name.label (class_="form-label" ) }}</div>
-                            <div class="col-md-10">{{ form.dog_name (class_="form-control", size =32, id="largerFont")}}</div>
+                        <div>
+                            <div id="largerFont">{{ form.dog_name.label (class_="form-label" ) }}</div>
+                            <div>{{ form.dog_name (class_="form-control", size =32, id="largerFont")}}</div>
                         </div>
                     </div>
                     <div class="row editDetailsRow">
-                        <div class = "mb-3">
-                            <div class="col-md-2" id="largerFont">{{ form.dog_age.label(class_="form-label")}}</div>
-                            <div class="col-md-10">{{ form.dog_age(class_="form-control", size =32, id="largerFont")}}</div>
+                        <div>
+                            <div id="largerFont">{{ form.dog_age.label(class_="form-label")}}</div>
+                            <div>{{ form.dog_age(class_="form-control", size =32, id="largerFont")}}</div>
                         </div>
                     </div>
 <!--                    <div class="row editDetailsRow">--> <!-- edit DogType not functional -->
@@ -28,20 +28,20 @@
 <!--                        </div>-->
 <!--                    </div>-->
                     <div class="row editDetailsRow">
-                        <div class = "mb-3">
-                            <div class="col-md-2" id="largerFont">{{ form.description.label (class_="form-label") }}</div>
-                            <div class="col-md-10">{{ form.description(class_="form-control",
+                        <div>
+                            <div id="largerFont">{{ form.description.label (class_="form-label") }}</div>
+                            <div>{{ form.description(class_="form-control",
                                 cols="32", rows="6", id="largerFont")}}</div>
                         </div>
                     </div>
                 <div class="row editDetailsRow">
-                        <div class = "mb-3">
-                            <div class="col-md-2">{{ form.submit(class_="customLinkStyling", id="editButton") }}</div>
+                        <div>
+                            <div>{{ form.submit(class_="customLinkStyling", id="editButton") }}</div>
                         </div>
                 </div>
                 <div class="row editDetailsRow">
-                        <div class = "mb-3">
-                            <a class="customLinkStyling" id="editButton" onclick="redirectCancel({{dog.user.id}})">Cancel</a>
+                        <div>
+                            <a class="customLinkStyling" id="editButton" onclick="redirectCancel()">Cancel</a>
 <!--                            <button id="editButton" class="customLinkStyling" onclick="redirectCancel({{dog.user.id}})">Cancel</button>-->
                         </div>
                 </div>

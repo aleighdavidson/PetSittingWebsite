@@ -11,39 +11,39 @@
             <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
             {{ form.csrf_token }}
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.first_name.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ form.first_name (class_="form-control", size =32, id="largerFont")}}</div>
+                <div>
+                    <div id="largerFont">{{ form.first_name.label (class_="form-label") }}</div>
+                    <div>{{ form.first_name (class_="form-control", size =32, id="largerFont")}}</div>
                 </div>
             </div>
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.last_name.label(class_="form-label")}}</div>
-                    <div class="col-md-10">{{ form.last_name(class_="form-control", size =32, id="largerFont")}}</div>
+                <div>
+                    <div id="largerFont">{{ form.last_name.label(class_="form-label")}}</div>
+                    <div>{{ form.last_name(class_="form-control", size =32, id="largerFont")}}</div>
                 </div>
             </div>
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.city.label (class_="form-label")}}</div>
-                    <div class="col-md-10">{{ form.city(class_="form-control", size =32, id="largerFont") }}</div>
+                <div>
+                    <div id="largerFont">{{ form.city.label (class_="form-label")}}</div>
+                    <div>{{ form.city(class_="form-control", size =32, id="largerFont") }}</div>
                 </div>
             </div>
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.phone.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ form.phone(class_="form-control", size =32, id="largerFont") }}</div>
+                <div>
+                    <div id="largerFont">{{ form.phone.label (class_="form-label") }}</div>
+                    <div>{{ form.phone(class_="form-control", size =32, id="largerFont") }}</div>
                 </div>
             </div>
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.email.label (class_="form-label") }}</div>
+                <div>
+                    <div id="largerFont">{{ form.email.label (class_="form-label") }}</div>
                     <div class="col-md-10">{{ form.email(class_="form-control", size =32, id="largerFont")}}</div>
                 </div>
             </div>
             <div class="row editDetailsRow">
-                <div class = "mb-3">
-                    <div class="col-md-2", id="largerFont">{{ form.bio.label (class_="form-label") }}</div>
-                    <div class="col-md-10">{{ form.bio(class_="form-control", size =32,
+                <div>
+                    <div id="largerFont">{{ form.bio.label (class_="form-label") }}</div>
+                    <div class="col-md>{{ form.bio(class_="form-control", size =32,
                         cols="32", rows="6", id="largerFont")}}</div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     </div>
             </div>
             <div class="row editDetailsRow">
-                <a class="customLinkStyling" id="editButton" onclick="redirectCancel({{user.id}})">Cancel</a>
+                <a class="customLinkStyling" id="editButton" onclick="redirectCancel()">Cancel</a>
 <!--                <button id="editButton", class="customLinkStyling", onclick="redirectCancel({{user.id}})">Cancel</button>-->
             </div>
                 {{ message }}

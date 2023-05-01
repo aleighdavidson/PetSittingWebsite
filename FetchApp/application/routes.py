@@ -194,10 +194,10 @@ def edit_user():
                            form=form, user=current_user, pageTitle='Edit User Details', message=error)
 
 
-@app.route('/editdog', methods=['GET', 'POST', 'DELETE'])
-def edit_dog():
+@app.route('/editdog/<id>', methods=['GET', 'POST', 'DELETE'])
+def edit_dog(id):
     error = ""
-    current_dog = service.get_dog_profile(session["userID"])
+    current_dog = service.get_dog_profile(id)
     form = DogForm(obj=current_dog)
     form.dog_type_list.data = current_dog.dog_type
     delete_form = DeleteUserForm()
@@ -208,11 +208,11 @@ def edit_dog():
         current_dog.description = form.description.data
         service.save_dog_changes(current_dog)
         flash('Changes successfully saved')
-        return redirect(url_for('account', id=current_dog.user.id))
-    elif request.method == 'DELETE':
-        service.delete_dog(current_dog)
-        flash('Dog Removed')
         return redirect(url_for('account', id=session["userID"]))
+    # elif request.method == 'DELETE':
+    #     service.delete_dog(current_dog)
+    #     flash('Dog Removed')
+    #     return redirect(url_for('account', id=session["userID"]))
     return render_template('edit_dog_details_form.html',
                            form=form, delete_form=delete_form, dog=current_dog,
                            pageTitle='Edit Dog Details', message=error)
