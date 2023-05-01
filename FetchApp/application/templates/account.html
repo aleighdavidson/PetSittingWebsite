@@ -97,7 +97,7 @@
                 <tr>
                     <th class="userTableColumn"></th>
                     {% for photo in dog.dog_photo %}
-                    <td><img class="imgPreview", src="{{ url_for('static', filename ='images/'+ photo.photo) }}"></td>
+                    <td><img class="imgPreview" src="{{ url_for('static', filename ='images/'+ photo.photo) }}"></td>
                     {% endfor %}
                 </tr>
             </table>

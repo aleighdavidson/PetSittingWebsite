@@ -244,17 +244,13 @@ def matches():
         return redirect(url_for('try_login'))
     if user.user_type == "Sitter":
         dog = service.match_dog(user.sitter_type_id)
-        print(user)
-        print(user.dog)
         sitter = ''
     if user.user_type == "Owner":
         # below is temporary so that owner match page has no error with missing dog=dog
         dog = service.get_user_dog(session["userID"])
         dogtype = dog.type_id
         sitter = service.match_sitter(dogtype)
-        print(dogtype)
-        print(user)
-        # print(user.dog)
+
     return render_template('matches.html', dog=dog, user=user, sitter=sitter, pageTitle='Matches')
 
 
