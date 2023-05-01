@@ -1,5 +1,5 @@
 import os
-from flask import render_template, jsonify, request, redirect, url_for, flash, session
+from flask import render_template, jsonify, request, redirect, url_for, flash, session, make_response
 import hashlib
 from application import app, service, db
 from application.models.user import User
@@ -59,6 +59,8 @@ def try_login():
 @app.route('/logout')  # remove session ID
 def logout():
     session.pop("userID", None)
+    resp = make_response(render_template('index.html', pageTitle="Index Page"))
+    resp.delete_cookie("userID")
     return redirect(url_for('catch_all'))
 
 # ROUTE to create account
@@ -165,7 +167,10 @@ def finishAccount():
 @app.route('/account', methods=['GET', 'POST', 'DELETE'])
 def account():
     error = ''
-    user = service.get_account_details(session["userID"])
+    try:  # this try/except is so if you try to go back a page after logging out, log in page is displayed
+        user = service.get_account_details(session["userID"])
+    except KeyError:
+        return redirect(url_for('try_login'))
     if user is None:
         error = 'User does not exist.'
     delete_form = DeleteUserForm()
@@ -180,9 +185,11 @@ def account():
 @app.route('/edituser', methods=['GET', 'POST'])
 def edit_user():
     error = ""
-    current_user = service.get_account_details(session["userID"])
+    try:  # this try/except is so if you try to go back a page after logging out, log in page is displayed
+        current_user = service.get_account_details(session["userID"])
+    except KeyError:
+        return redirect(url_for('try_login'))
     form = UserForm(obj=current_user)
-
     if request.method == 'POST':
         form = UserForm(request.form)
         current_user.first_name = form.first_name.data
@@ -199,10 +206,14 @@ def edit_user():
                            form=form, user=current_user, pageTitle='Edit User Details', message=error)
 
 
-@app.route('/editdog/<id>', methods=['GET', 'POST', 'DELETE'])
-def edit_dog(id):
+@app.route('/editdog', methods=['GET', 'POST', 'DELETE'])
+def edit_dog():
     error = ""
-    current_dog = service.get_dog_profile(id)
+    try:  # this try/except is so if you try to go back a page after logging out, log in page is displayed
+        current_user = service.get_account_details(session["userID"])
+    except KeyError:
+        return redirect(url_for('try_login'))
+    current_dog = service.get_user_dog(current_user.id)
     form = DogForm(obj=current_dog)
     form.dog_type_list.data = current_dog.dog_type
     delete_form = DeleteUserForm()
@@ -226,7 +237,10 @@ def edit_dog(id):
 @app.route('/matches')
 def matches():
     # retrieve all dogs of the specified dog type
-    user = service.get_account_details(session["userID"])
+    try:  # this try/except is so if you try to go back a page after logging out, log in page is displayed
+        user = service.get_account_details(session["userID"])
+    except KeyError:
+        return redirect(url_for('try_login'))
     if user.user_type == "Sitter":
         dog = service.match_dog(user.sitter_type_id)
         print(user)
