@@ -1,5 +1,5 @@
-function redirectCancel(id){
-window.location.href ='/account/'+ id;
+function redirectCancel(){
+window.location.href ='/account';
 }
 // not used right now
 //function redirectUser(id){
