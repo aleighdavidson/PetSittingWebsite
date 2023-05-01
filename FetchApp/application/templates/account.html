@@ -1,7 +1,5 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<!--<<<<<<< HEAD-->
-
 <nav class="navbar navbar-expand-custom navbar-mainbg">
   <a class="navbar-brand navbar-logo" href="/">Home</a>
   <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +18,7 @@
         <a class="nav-link" href="javascript:void(0);" onclick="redirectUserMatches({{user.sitter_type_id}})"><i class="far fa-clone"></i>Matches</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);" onclick="redirectHome()"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+        <a class="nav-link" href="javascript:void(0);" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Log Out</a>
       </li>
     </ul>
   </div>
@@ -40,7 +38,7 @@
         <div class="flashMessage">{{ message }}</div>
             <div class='editContent'>
                 <h1> About You </h1>
-                <a class="customLinkStyling" id="editButton" href="/edituser/{{user.id}}">Edit Your Details</a>
+                <a class="customLinkStyling" id="editButton" href="/edituser">Edit Your Details</a>
                 <table class="userTable">
                     <tr>
                         <th class="userTableColumn">First Name:</th>

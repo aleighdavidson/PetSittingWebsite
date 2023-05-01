@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, request, redirect, url_for, flash
+from flask import render_template, jsonify, request, redirect, url_for, flash, session
 import hashlib
 from application import app, service, db
 from application.models.user import User
@@ -35,14 +35,20 @@ def try_login():
         user = service.check_login_details(attempted_email, encrypted_password)
         # if statement: user exists will return their ID and success URL
         if user:
-            return redirect(url_for('account', id=user.id))
+            session['userID'] = user.id  # set session ID
+            return redirect(url_for('matches', type_id=user.sitter_type_id))
         # if unsuccessful, will return an error message along with the login page again
         error = "Incorrect details. Please try a different login"
     return render_template('login.html', error=error, pageTitle="Login Page")
 
 
+@app.route('/logout')  # remove session ID
+def logout():
+    session.pop('userID', None)
+    return redirect(url_for('catch_all'))
 
-#ROUTE to create account (working with buttons in JS too) just need to fix form posting
+
+# ROUTE to create account (working with buttons in JS too) just need to fix form posting
 @app.route('/createAccount', methods=['GET', 'POST'])
 def createAccount():
     return render_template('createAccount.html', pageTitle="Create Account Page")
@@ -59,10 +65,10 @@ def success(id):
 
 
 # ROUTE display Account Details
-@app.route('/account/<id>', methods=['GET', 'POST', 'DELETE'])
-def account(id):
-    error=''
-    user = service.get_account_details(id)
+@app.route('/account', methods=['GET', 'POST', 'DELETE'])
+def account():
+    error = ''
+    user = service.get_account_details(session['userID'])
     if user is None:
         error = 'User does not exist.'
     delete_form = DeleteUserForm()
@@ -72,10 +78,10 @@ def account(id):
         return redirect(url_for('try_login'))
     return render_template('account.html', delete_form=delete_form, user=user, pageTitle='Account Details', message=error)
 
-@app.route('/edituser/<id>', methods=['GET', 'POST'])
+@app.route('/edituser', methods=['GET', 'POST'])
 def edit_user(id):
     error = ""
-    current_user = service.get_account_details(id)
+    current_user = service.get_account_details(session['userID'])
     form = UserForm(obj=current_user)
 
     if request.method == 'POST':
@@ -122,7 +128,9 @@ def edit_dog(id):
 def matches(type_id):
     # retrieve all dogs of the specified dog type
     dog = service.match_dog(type_id)
-    user = service.get_account_details(type_id)
+    # user = service.get_account_details(type_id)
+    user = service.get_account_details(session['userID'])
+
     return render_template('matches.html', dog=dog, user=user, pageTitle='Matches')
 
 
