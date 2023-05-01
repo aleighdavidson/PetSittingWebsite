@@ -61,7 +61,8 @@ def logout():
     session.pop("userID", None)
     resp = make_response(render_template('index.html', pageTitle="Index Page"))
     resp.delete_cookie("userID")
-    return redirect(url_for('catch_all'))
+    return resp
+
 
 # ROUTE to create account
 @app.route('/createAccount', methods=['GET', 'POST'])
