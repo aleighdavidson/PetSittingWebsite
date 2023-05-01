@@ -16,7 +16,7 @@ def check_login_details(email, password):
 def add_user(email, password, fname, sname, city, phone, bio):
     # create an sql query that inserts the data
     sql = "INSERT INTO user (first_name, last_name, city, phone, email, password, user_type, bio) VALUES" + \
-          "('" + fname + "', '" + sname + "', '" + city  + "', '" + phone  + "', '" + email  + "', '" + password  + "', 'Sitter', '" + bio + "');"
+          "('" + fname + "', '" + sname + "', '" + city + "', '" + phone + "', '" + email + "', '" + password + "', 'Sitter', '" + bio + "');"
 
     # convert the sql into a text type (alchemy thing...) then execute
     db.session.execute(text(sql))
@@ -28,9 +28,10 @@ def add_user(email, password, fname, sname, city, phone, bio):
 # Finish the sitter using the user_id and dog_type
 # Will UPDATE the user's sitter_type_id to the dog_type selected
 def finish_sitter(user_id, dog_type):
-    sql = "UPDATE fetchdb.user SET sitter_type_id = " + str(dog_type) +  " WHERE id = " + str(user_id) + ";"
+    sql = "UPDATE fetchdb.user SET sitter_type_id = " + str(dog_type) + " WHERE id = " + str(user_id) + ";"
     db.session.execute(text(sql))
     db.session.commit()
+
 
 # Finish the owner and add the dog and photo information
 def finish_owner(user_id, dog_name, dog_age, type_id, description, photo):
@@ -40,7 +41,8 @@ def finish_owner(user_id, dog_name, dog_age, type_id, description, photo):
 
     # add the dog into the dog table
     sqlDog = "INSERT INTO fetchdb.dog(user_id, dog_name, dog_age, type_id, description) " \
-          "VALUES (" + str(user_id) + ", '" + str(dog_name) + "', " + str(dog_age) + ", " + str(type_id) + ", '" + str(description) + "');"
+             "VALUES (" + str(user_id) + ", '" + str(dog_name) + "', " + str(dog_age) + ", " + str(
+        type_id) + ", '" + str(description) + "');"
 
     db.session.execute(text(sqlDog))
 
@@ -53,7 +55,6 @@ def finish_owner(user_id, dog_name, dog_age, type_id, description, photo):
 
     # commit the changes
     db.session.commit()
-
 
 
 def get_account_details(id):
@@ -88,13 +89,21 @@ def match_dog(type_id):
     #     print(x)
     #     print(x.dog_name)
     return dog
-    
-    
+
+
+def match_sitter(dogtype):
+    sitter = db.session.query(User).filter(User.sitter_type_id == dogtype).all()
+    return sitter
+
+
+def get_user_dog(user_id):
+    dog = db.session.query(Dog).filter(Dog.user_id == user_id).first()
+    return dog
+
+
 def get_dog_profile(id):
     return db.session.query(Dog).filter_by(id=id).first()
 
 
 def get_dog_photo(dog_id):
     return db.session.query(DogPhoto).filter_by(dog_id=dog_id).first()
-
-

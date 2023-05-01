@@ -66,6 +66,38 @@
     </div>
     {% endif %}
 
+    {% if user.user_type == "Owner" %}
+      {% for sitters in sitter %}
+        <table class="userTable">
+                    <tr>
+                        <th class="userTableColumn">First Name:</th>
+                        <td>{{sitters.first_name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Last Name:</th>
+                        <td>{{sitters.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">City:</th>
+                        <td>{{sitters.city}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Phone Number:</th>
+                        <td>{{sitters.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Email Address: </th>
+                        <td>{{sitters.email}}</td>
+                    </tr>
+                    <tr>
+                        <th class="userTableColumn">Bio:</th>
+                        <td>{{sitters.bio}}</td>
+                    </tr>
+                </table>
+              {% endfor %}
+
+
+            {% endif %}
     <div class="cursor"></div>
     <div class="cursor cursor2"></div>
     <script src="{{ url_for('static', filename='carousel.js') }}"></script>
