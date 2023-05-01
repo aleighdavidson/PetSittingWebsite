@@ -168,6 +168,33 @@ h1 {
   display: none;
   pointer-events: none;
 }
+
+#sitterGrid {
+display: grid;
+grid-template-columns: auto auto auto;
+padding-top: 5%;
+}
+
+#sitterResults {
+grid-column: 2 / 2;
+grid-row: 2 / 2;
+font-size: 20px;
+padding-left:200px;
+border-radius: 50px;
+}
+
+.userTableColumn {
+padding:10px;
+color:black;
+border-bottom: 5px solid #74A57F;
+}
+
+td {
+color:black;
+border-bottom: 5px solid #74A57F;
+}
+
+
 @media (pointer: fine) {
   .cursor {
     display: block;

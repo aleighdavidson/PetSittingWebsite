@@ -22,31 +22,31 @@ body {
 .logoContainer {
 	display:grid;
 	grid-template-rows: auto auto;
-	grid-row: 1;
-	grid-column: 1;
-	justify-content:center;
-	align-self:center;
-	align-items: center;
+	grid-row: 1 / span 1;
+	grid-column: 1 / span 1;
+	justify-content:start;
+	align-self: start;
+	align-items: start;
     flex-direction: column;
     flex-wrap: nowrap;
-	height: 100vh;
+	height: 100%;
 	overflow:hidden;
 }
 
 #waveRotated{
-	height: 110vh;
+	height: 110%;
 	grid-column:2;
 	grid-row:1 / 2;
 	justify-self: right;
 }
 
 #fetchContainer {
+    padding: 20px 0 0 20px;
 	height: 100%;
 	grid-column:1;
 	grid-row: 1;
 	background-color:#9BD2DE;
 }
-
 
 
 /* Login Template */
@@ -111,77 +111,6 @@ body {
     background-color: #9BD2DE;
 }
 
-/* media queries */
-
-@media (max-width: 900px) {
-	#heroDog {
-		width: 200px;
-	}
-
-	#heroParagraph {
-		transform: translateY(0);
-		margin-bottom: 30px;
-	}
-	#fetchContainer{
-		display:none;
-	}
-
-	#gridContainer {
-		width:294px;
-		overflow: hidden;
-	}
-
-	#waveRotated {
-		display:none;
-	}
-
-	.logoContainer {
-		margin:auto;
-		display:none;
-	}
-
-}
-
-@media (max-width: 600px) {
-	.gridContainer {
-		width: 100%;
-	}
-
-	.logoContainer {
-		margin:auto;
-		display:none;
-	}
-
-	#fetchContainer{
-		display:none;
-	}
-
-	#waveRotated {
-		display:none;
-	}
-
-	#heroColorBackground {
-		grid-row: 1 / 2;
-	}
-
-	#heroBackground {
-		display: none;
-	}
-
-	#heroDog {
-		display: none;
-	}
-
-	#dogTypes {
-		padding: 0;
-	  	flex-direction: column;
-	}
-
-	.textbox {
-		width:100%;
-		border-radius: 0;
-	}
-  }
 
 /* Footer */
 .footerContainer {
@@ -258,4 +187,76 @@ text-align: center;
   align-items: center;
   height: 60vh
 }
+
+/* media queries */
+
+@media (max-width: 900px) {
+	#heroDog {
+		width: 200px;
+	}
+
+	#heroParagraph {
+		transform: translateY(0);
+		margin-bottom: 30px;
+	}
+	#fetchContainer{
+		display:none;
+	}
+
+	#gridContainer {
+		width:294px;
+		overflow: hidden;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+}
+
+@media (max-width: 600px) {
+	.gridContainer {
+		width: 100%;
+	}
+
+	.logoContainer {
+		margin:auto;
+		display:none;
+	}
+
+	#fetchContainer{
+		display:none;
+	}
+
+	#waveRotated {
+		display:none;
+	}
+
+	#heroColorBackground {
+		grid-row: 1 / 2;
+	}
+
+	#heroBackground {
+		display: none;
+	}
+
+	#heroDog {
+		display: none;
+	}
+
+	#dogTypes {
+		padding: 0;
+	  	flex-direction: column;
+	}
+
+	.textbox {
+		width:100%;
+		border-radius: 0;
+	}
+  }
 
