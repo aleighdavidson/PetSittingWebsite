@@ -17,18 +17,6 @@ body {
 	row-gap: 0px;
 }
 
-.logoContainer {
-	display:grid;
-	grid-template-rows: auto auto;
-	grid-row: 1;
-	grid-column: 1;
-	justify-content:center;
-	align-self:center;
-	align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-	height: 100vh;
-}
 
 /* Custom Styling */
 .customLinkStyling {

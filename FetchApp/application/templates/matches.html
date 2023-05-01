@@ -68,6 +68,8 @@
 
     {% if user.user_type == "Owner" %}
       {% for sitters in sitter %}
+   <div id="sitterGrid">
+    <div id="sitterResults">
         <table class="userTable">
                     <tr>
                         <th class="userTableColumn">First Name:</th>
@@ -94,6 +96,8 @@
                         <td>{{sitters.bio}}</td>
                     </tr>
                 </table>
+        </div>
+       </div>
               {% endfor %}
             {% endif %}
     <div class="cursor"></div>
