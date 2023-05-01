@@ -4,6 +4,8 @@ body {
 	font-family: var(--font);
 	font-size: 16px;
 }
+
+/*NavBar*/
 * {
   margin: 0;
   padding: 0;
@@ -165,4 +167,195 @@ i {
     bottom: -25px;
     left: -25px;
   }
+}
+
+/*For Account and Dog Profile*/
+
+.editGridContainer {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	width: 100vw;
+	row-gap: 0px;
+}
+
+.editGridContainer > .editContent {
+	justify-self: start;
+	padding: 20px;
+	padding-left: 50px;
+	max-width: 900px;
+	grid-column:1;
+	grid-row: 1 / 2;
+}
+
+.userTable{
+    border-spacing: 30px;
+    max-width: 900px;
+}
+
+.userTableColumn{
+    width: 150px;
+    text-align: left;
+}
+
+.imgPreview {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  }
+
+#buttonWarning {
+	background-color: red;
+	color: white;
+	font-family: var(--font);
+	font-size: 16px;
+}
+
+#buttonWarning:hover {
+    background-color: white;
+	color: red;
+}
+
+#editButton {
+    background-color: #74A57F;
+    color: white;
+    font-family: var(--font);
+    font-size: 16px;
+}
+
+#editButton:hover{
+	background-color: #077187;
+}
+
+.flashMessage {
+    padding-top: 30px;
+    place-self: center;
+}
+
+.editDetailsRow {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#largerFont{
+    font: courier;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#editBackground{
+    background-color: #9BD2DE;
+}
+
+
+/* Footer */
+.footerContainer {
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px 10px;
+	justify-content: space-evenly;
+    background-color: #74A57F;
+ }
+
+.footerMain {
+    align-self: start;
+}
+
+.footerFooter {
+    place-self: center;
+}
+
+#footerLink:link {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#footerLink:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.ulFooter{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.liFooter{
+    margin: 10px;
+}
+
+#footerLogo {
+    /*place-self: center end;
+    padding-left: 50px;
+    grid-column: 5; */
+    width: 148.5px;
+    height: 62px;
+}
+
+/* Dog Profile Template */
+
+.dog_name {
+text-align: center;
+}
+
+.heroContent {
+text-align: center;
+}
+
+.description p {
+text-align: center;
+height: 10vh;
+}
+
+.dog_info {
+text-align: center;
+display: flex;
+justify-content: center;
+
+}
+.dog_info p {
+display: inline-block;
+margin-right: 60px;
+text-align: center;
+}
+
+.dog_photo img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  }
+
+.dog_photo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh
+}
+
+.contact_info_container {
+text-align: center;
+height: 20vh;
+}
+
+.dog_info_container {
+  height: 10vh
+}
+
+
+.list_container {
+display: flex;
+  justify-content: center;
+}
+
+.info_list {
+  width: 900px;
 }
