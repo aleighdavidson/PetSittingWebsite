@@ -100,22 +100,28 @@ h1 {
   position: absolute;
   z-index: 1;
   color: #fff;
-  bottom: 40px;
+  bottom: 15px;
   left: 15px;
   transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
   font-size: 15px;
   overflow: auto;
 }
 .carousel-item img {
-  width: 80%;
-  height: 70%;
+  width: 80% !important;
+  height: 70% !important;
   position: relative;
   top: 20px;
   left: 35px;
-  border-radius: 10px;
+  border-radius: 10px !important;
   border-style: solid;
   border-color: #fff;
   border-width: 5px;
+}
+
+#seeMore {
+  color: white;
+  margin-left: 122px;
+  font-size: 20px;
 }
 
 .layout {
